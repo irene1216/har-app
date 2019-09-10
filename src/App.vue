@@ -3,7 +3,7 @@
       <router-link to="/about">ddddddAbout</router-link> -->
   <div id="app">
     <side-bar />
-    <router-view />
+    <!-- <router-view /> -->
   </div>
 </template>
 
@@ -22,10 +22,10 @@
 
 #app {
   font-family: "Niramit", sans-serif, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+
   text-align: center;
-  color: #2c3e50;
+
 }
 
 ul {
