@@ -30,6 +30,16 @@
   text-align: center;
 }
 
+h1{
+  text-align: left;
+}
+
+h2{
+  font-family: "Roboto", sans-serif, Arial, sans-serif;
+  font-size:1.25em;
+  text-align:left;
+}
+
 ul {
   list-style-type: none;
 }
