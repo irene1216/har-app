@@ -50,7 +50,7 @@ ul {
   }
 }
 
-.moveInUp-leave-active {
+/*.moveInUp-leave-active {
   animation: moveInUp .3s ease-in;
 }
 
@@ -61,6 +61,6 @@ ul {
   100% {
     transform: translateY(-400px);
   }
-}
+}*/
 
 </style>
