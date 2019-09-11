@@ -2,20 +2,20 @@
   <div class="products d-flex">
     <!-- tabs -->
     <div class="tabs d-flex flex-column">
-      <a href="#har-starter">Har Starter Kit</a>
+        <a href="#har-starter" @click="showProduct('starter')">Har Starter Kit</a>
         <a href="#har-fiber">Har Fiber</a>
         <a href="#har-mist" >Har Mist</a>
         <a href="#har-refill">Har Refill</a>
     </div>
     <!-- content  -->
     <div class="content">
-      <div id="har-starter" class="tabcontent d-flex">
+      <div id="starter" class="tabcontent d-flex">
         <img src="" alt="" class="image">
         <div class="tabs-content-text">
           <p>starter</p>
         </div>
       </div>
-      <div id="har-fiber" class="tabcontent d-flex">
+      <div id="fiber" class="tabcontent d-flex">
         <img src="" alt="" class="image">
         <div class="tabs-content-text">
           <p>Fiber</p>
@@ -28,12 +28,12 @@
 <script>
   export default {
     name: "Products",
-    // methods: {
-    //   showProduct (event, product) {
-    //     var i, tabcontent, tablink;
-    //     tabcontent = document.getElementsByClassName("tabscontet");
-    //   }
-    // },
+    methods: {
+      showProduct (product) {
+        var i, tabcontent, tablink;
+        tabcontent = document.getElementsByClassName("tabscontent");
+      }
+    },
   }
 </script>
 
