@@ -1,17 +1,21 @@
 <template>
   <div class="products d-flex">
     <!-- tabs -->
+    <div class="col-2">
     <header class="product-header">
-      <ul class="tab-heads d-flex flex-column">
+      <ul class="tab-heads">
         <li class="tab-head pl-3" v-for="tab in tabs" :key="tab"v-bind:class="{'tab-head--active' : activeTab === tab }"v-on:click="switchTab(tab)">
           <slot :name="tabHeadSlotName(tab)">{{tab}}</slot>
         </li>
       </ul>
     </header>
+  </div>
     <!-- content  -->
+    <div class="col-10">
     <main class="product-body">
-      <div class="tab-panel"><slot :name="tabPanelSlotName"></slot></div>
+      <div class="tab-panel d-flex"><slot :name="tabPanelSlotName"></slot></div>
     </main>
+  </div>
   </div>
 </template>
 
@@ -48,25 +52,23 @@
 
 .products {
   border-radius: 6px;
-  width: 100%;
   height: 100%;
-  background:white;
 }
 
 .product-body {
-  padding: 20px 16px;
-  flex-basis: 80%;
+  height:100%;
 }
 
+.product-header{
+  height:100%;
+
+}
 
 .tab-heads{
   height:100%;
   color:grey;
   text-align: left;
   padding-left: 3px;
-    justify-content: center;
-  align-content: center;
-  flex-basis: 20%;
 }
 
 .tab-head--active{
