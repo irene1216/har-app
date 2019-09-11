@@ -1,10 +1,10 @@
 <template>
   <div class="all">
-    <side-bar />
-    <router-link to="/">Home</router-link>
-    <router-link to="/about">ddddddAbout</router-link>
+    <side-bar @isHidden />
     <div id="app">
-      <router-view />
+      <transition name="moveInUp">
+       <router-view />
+      </transition>
     </div>
   </div>
 </template>
@@ -15,6 +15,9 @@
     name: 'app',
     components: {
       SideBar,
+    },
+    method: {
+
     }
   }
 </script>
@@ -40,5 +43,34 @@ h2{
 ul {
   list-style-type: none;
 }
+
+.moveInUp-enter-active {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  0%  {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+/*.moveInUp-leave-active {
+  animation: moveInUp .3s ease-in;
+}
+
+@keyframes moveInUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-400px);
+  }
+}*/
 
 </style>
