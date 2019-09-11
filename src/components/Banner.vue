@@ -1,11 +1,11 @@
 <template>
-  <div class="banner">
-    <div class="banner-image">
+  <div class="banner d-flex">
+    <div class="banner-image d-flex flex-column">
       <div class="banner-image-background">
       </div>
       <img alt="man" src="../assets/alex_right.png"/>
     </div>
-    <div class="banner-text">
+    <div class="banner-text d-flex flex-column ml-5">
       <h2>
         Natural looking dense hair in just 30 seconds.
       </h2>
@@ -26,7 +26,6 @@
 <style>
 
 .banner{
-  display:flex;
   width:100%;
   height:80%;
 
@@ -34,7 +33,6 @@
 
 .banner-image {
   flex-basis: 50%;
-  display: flex;
   position: relative;
   flex-direction: column;
   align-items: center;
@@ -57,8 +55,6 @@
 
 .banner-text{
   flex-basis:50%;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
 }
 

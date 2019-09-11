@@ -1,21 +1,26 @@
 <template>
   <div class="home">
     <!-- header -->
-    <HelloWorld msg="Har Studio." />
-    <div class="container">
-      <!-- banner -->
-      <div class="section">
+    <HelloWorld msg="Har Studio."/>
+
+    <!-- banner -->
+    <div class="section mt-5">
+      <div class="container">
         <banner/>
       </div>
-      <!-- Products -->
-      <div class="section">
-      </div>
-      <!-- Contact -->
-      <div class="section">
-      </div>
-      <!-- footer -->
-
     </div>
+    <!-- Products -->
+    <div class="section color py-5">
+      <div class="container">
+        <products/>
+      </div>
+    </div>
+    <!-- Contact -->
+    <div class="section">
+    </div>
+    <!-- footer -->
+
+
   </div>
 </template>
 
@@ -23,27 +28,30 @@
 // @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue";
 import Banner from "@/components/Banner.vue";
-
-
+import Products from "@/components/Products.vue";
 export default {
   name: "home",
   components: {
     HelloWorld,
-    Banner
+    Banner,
+    Products,
   }
-};
+}
 </script>
 
 <style>
 
 /*general styling*/
-
 .home {
   height:100vh;
 }
 
 .container{
   height:100%;
+}
+
+.color{
+  background:#EDEAE5;
 }
 
 .section{
@@ -59,6 +67,7 @@ export default {
   justify-content: center;
   align-items: center;
   margin-top: 10%;
+  border:none;
 }
 
 .btn-black h2{
