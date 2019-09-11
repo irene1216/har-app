@@ -9,6 +9,7 @@
         <banner/>
       </div>
     </div>
+        <img class="arrow" src="@/assets/arrow-down.svg">
     <!-- Products -->
     <div class="section color py-5">
       <div class="container">
@@ -27,6 +28,7 @@
   <div class="section">
   </div>
   <!-- footer -->
+
 
 
 </div>
@@ -100,6 +102,17 @@ export default {
   max-width: 85%;
   line-height: 22px;
   margin-bottom: 10px;
+.arrow {
+  width: 25px;
+  position: absolute;
+  bottom: 30px;
+  transform-origin: 20% 20%;
+  animation: jump 1s linear alternate infinite;
+}
+
+@keyframes jump {
+  0%   {transform: translate3d(0,0,0) scale3d(1,1,1);}
+  100% {transform: translate3d(0,100%,0) scale3d(1,1,1);}
 }
 
 </style>
