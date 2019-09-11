@@ -6,9 +6,13 @@
       v-for="tab in tabs" :key="tab"
       v-on:click="switchTab(tab)"
     >
+<!--       v-bind:class='{{
+        'tab-head--active' : activeTab === tab
+      }}' -->
       <slot :name="tabHeadSlotName(tab)">
         {{tab}}
       </slot>
+
     </div>
     <div>
 <!--         <p @v-on:click="showProduct('starter')">Har Starter Kit</p>
@@ -16,21 +20,7 @@
         <p @v-on:click="showProduct('mist')">Har Mist</p>
         <p @v-on:click="showProduct('refill')">Har Refill</p> -->
     </div>
-    <!-- content  -->
-    <div class="content">
-      <div id="starter" class="tabcontent d-flex">
-        <img src="" alt="" class="image">
-        <div class="tabs-content-text">
-          <p>starter</p>
-        </div>
-      </div>
-      <div id="fiber" class="tabcontent d-flex">
-        <img src="" alt="" class="image">
-        <div class="tabs-content-text">
-          <p>Fiber</p>
-        </div>
-      </div>
-    </div>
+
   </div>
 </template>
 
