@@ -1,8 +1,8 @@
 <template>
   <div class="all">
     <side-bar />
-        <router-link to="/">Home</router-link>
-        <router-link to="/about">ddddddAbout</router-link>
+    <router-link to="/">Home</router-link>
+    <router-link to="/about">ddddddAbout</router-link>
     <div id="app">
       <router-view />
     </div>
@@ -13,10 +13,10 @@
   import SideBar from '@/components/SideBar.vue'
   export default {
     name: 'app',
-      components: {
-        SideBar,
-      }
+    components: {
+      SideBar,
     }
+  }
 </script>
 
 <style>
@@ -24,16 +24,17 @@
 
 #app {
   font-family: "Niramit", sans-serif, Arial, sans-serif;
-
-
   text-align: center;
+}
 
+* {
+  margin:0;
+  padding:0;
 }
 
 ul {
   list-style-type: none;
 }
-
 
 
 </style>
