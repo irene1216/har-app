@@ -1,36 +1,17 @@
 <template>
   <div class="products d-flex">
     <!-- tabs -->
-    <div
-      class="tabs d-flex flex-column"
-      v-for="tab in tabs" :key="tab"
-      v-on:click="switchTab(tab)"
-    >
-      <slot :name="tabHeadSlotName(tab)">
-        {{tab}}
-      </slot>
-    </div>
-    <div>
-<!--         <p @v-on:click="showProduct('starter')">Har Starter Kit</p>
-        <p @v-on:click="showProduct('fiber')">Har Fiber</p>
-        <p @v-on:click="showProduct('mist')">Har Mist</p>
-        <p @v-on:click="showProduct('refill')">Har Refill</p> -->
-    </div>
+    <header class="product-header">
+      <ul class="tab-heads d-flex flex-column">
+        <li class="tab-head pl-3" v-for="tab in tabs" :key="tab"v-bind:class="{'tab-head--active' : activeTab === tab }"v-on:click="switchTab(tab)">
+          <slot :name="tabHeadSlotName(tab)">{{tab}}</slot>
+        </li>
+      </ul>
+    </header>
     <!-- content  -->
-    <div class="content">
-      <div id="starter" class="tabcontent d-flex">
-        <img src="" alt="" class="image">
-        <div class="tabs-content-text">
-          <p>starter</p>
-        </div>
-      </div>
-      <div id="fiber" class="tabcontent d-flex">
-        <img src="" alt="" class="image">
-        <div class="tabs-content-text">
-          <p>Fiber</p>
-        </div>
-      </div>
-    </div>
+    <main class="product-body">
+      <div class="tab-panel"><slot :name="tabPanelSlotName"></slot></div>
+    </main>
   </div>
 </template>
 
@@ -41,52 +22,55 @@
       initialTab: String,
       tabs: Array
     },
+    data(){
+      return{
+        activeTab:this.initialTab
+      };
+    },
+    computed: {
+      tabPanelSlotName(){
+        return`tab-panel-${this.activeTab}`;
+      }
+    },
     methods: {
       tabHeadSlotName(tabName) {
         return `tab-head-${tabName}`;
       },
 
       switchTab(tabName) {
-        this.activeTab=tabName;
+        this.activeTab = tabName;
       },
     },
   };
 </script>
 
-<style>
+<style scoped>
 
-
-.content{
-  display:none;
+.products {
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  background:white;
 }
 
-.content:target{
-  display:block;
-}
-.tabcontent img{
-  background:green;
-  height:100px;
-  width:100px;
+.product-body {
+  padding: 20px 16px;
+  flex-basis: 80%;
 }
 
-.tabs {
-  background: transparent;
-  outline:none;
-  float:left;
-  text-align: left;
-  text-decoration: none;
-  flex-basis: 20%;
-  justify-content: center;
-}
-.tabs p {
+
+.tab-heads{
+  height:100%;
   color:grey;
-  padding-left: 8%;
-  white-space: none;
-  word-wrap: nowrap;
+  text-align: left;
+  padding-left: 3px;
+    justify-content: center;
+  align-content: center;
+  flex-basis: 20%;
 }
-.tabs a:hover, a:active {
+
+.tab-head--active{
   color:black;
-  text-decoration:none;
   border-left: 3px solid black;
 }
 
