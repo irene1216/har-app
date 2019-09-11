@@ -40,6 +40,11 @@ h2{
   text-align:left;
 }
 
+p{
+  font-family: "Roboto", sans-serif, Arial, sans-serif;
+  font-size:1em;
+}
+
 ul {
   list-style-type: none;
 }
