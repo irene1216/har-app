@@ -13,18 +13,25 @@
     <!-- Products -->
     <div class="section color py-5">
       <div class="container">
-        <products :tabs="tabs" :initialTab="initialTab" />
-        <template slot=tab-head-starter>
-          Starterrrrrrrrrrr
-        </template>
-      </div>
+        <products :tabs="tabs" :initialTab="initialTab">
+        <template slot="tab-head-starter">
+          Har Starter Kit
+       </template>
+       <template slot="tab-panel-starter">
+        <h1>Har Starter Kit</h1>
+        <p>Starterrrrrrrrrrr</p>
+      </template>
+    </products>
     </div>
-    <!-- Contact -->
-
-    <!-- footer -->
-
-
   </div>
+  <!-- Contact -->
+  <div class="section">
+  </div>
+  <!-- footer -->
+
+
+
+</div>
 </template>
 
 <script>
@@ -42,7 +49,7 @@ export default {
   data () {
     return {
       initialTab: "starter",
-      tabs: ["starter", "fiber", "mist", "refill"]
+      tabs: ["starter", "Har Fiber", "Har Mist", "Har Refill"]
     };
   }
 }
@@ -51,6 +58,8 @@ export default {
 <style>
 
 /*general styling*/
+
+
 .home {
   height:100vh;
 }
@@ -83,6 +92,16 @@ export default {
   margin:0;
 }
 
+.title {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.description {
+  margin-top: 5px;
+  max-width: 85%;
+  line-height: 22px;
+  margin-bottom: 10px;
 .arrow {
   width: 25px;
   position: absolute;
