@@ -18,6 +18,7 @@ export default {
 <style scoped>
 h1{
   font-size: 4em;
+  text-align: center;
 }
 h3 {
   margin: 40px 0 0;

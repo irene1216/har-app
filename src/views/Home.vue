@@ -1,15 +1,20 @@
 <template>
   <div class="home">
-    <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
+    <!-- header -->
     <HelloWorld msg="Har Studio." />
     <div class="container">
-      <div class="banner-section">
-        <div class="banner-image">
-          <h1>Hello</h1>
-        </div>
-        <div class="banner-text">
-        </div>
+      <!-- banner -->
+      <div class="section">
+        <banner/>
       </div>
+      <!-- Products -->
+      <div class="section">
+      </div>
+      <!-- Contact -->
+      <div class="section">
+      </div>
+      <!-- footer -->
+
     </div>
   </div>
 </template>
@@ -17,27 +22,47 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue";
+import Banner from "@/components/Banner.vue";
+
 
 export default {
   name: "home",
   components: {
-    HelloWorld
+    HelloWorld,
+    Banner
   }
 };
 </script>
 
 <style>
 
+/*general styling*/
+
 .home {
   height:100vh;
 }
 
-.banner-section{
-  display:flex;
+.container{
+  height:100%;
 }
 
-.banner-image {
-  background:purple;
+.section{
+  height:100%;
+}
+
+.btn-black{
+  background: black;
+  color:white;
+  height:45px;
+  width:300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+}
+
+.btn-black h2{
+  margin:0;
 }
 
 </style>
