@@ -4,9 +4,9 @@
             <div class="nav-menu">
                 <img class="menu-toggle" v-on:click="isHidden = !isHidden" alt="bento Go!" src="@/assets/bento-menu.svg" style="width: 25px" />
                 <div class="menu-list" v-if="!isHidden" v-on:click="isHidden = !isHidden" v-bind:class="{ onhide: isHidden == true }">
-                    <router-link v-bind:class=" { onShow1: isHidden == false}" class="menu-item" to="/">Home</router-link>
-                    <router-link v-bind:class=" { onShow2: isHidden == false }" class="menu-item" to="/about">About Us</router-link>
-                    <router-link v-bind:class=" { onShow3: isHidden == false }" class="menu-item" to="/FAQ">FAQ</router-link>
+                    <router-link v-bind:class=" { onShow1: !isHidden }" class="menu-item" to="/">Home</router-link>
+                    <router-link v-bind:class=" { onShow2: !isHidden }" class="menu-item" to="/about">About Us</router-link>
+                    <router-link v-bind:class=" { onShow3: !isHidden }" class="menu-item" to="/FAQ">FAQ</router-link>
                 </div>
             </div>
             <div class="nav-logo">Har Studio.</div>

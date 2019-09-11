@@ -1,11 +1,20 @@
 <template>
   <div class="products d-flex">
     <!-- tabs -->
-    <div class="tabs d-flex flex-column">
-        <a href="#har-starter" @click="showProduct('starter')">Har Starter Kit</a>
-        <a href="#har-fiber">Har Fiber</a>
-        <a href="#har-mist" >Har Mist</a>
-        <a href="#har-refill">Har Refill</a>
+    <div
+      class="tabs d-flex flex-column"
+      v-for="tab in tabs" :key="tab"
+      v-on:click="switchTab(tab)"
+    >
+      <slot :name="tabHeadSlotName(tab)">
+        {{tab}}
+      </slot>
+    </div>
+    <div>
+<!--         <p @v-on:click="showProduct('starter')">Har Starter Kit</p>
+        <p @v-on:click="showProduct('fiber')">Har Fiber</p>
+        <p @v-on:click="showProduct('mist')">Har Mist</p>
+        <p @v-on:click="showProduct('refill')">Har Refill</p> -->
     </div>
     <!-- content  -->
     <div class="content">
@@ -28,13 +37,20 @@
 <script>
   export default {
     name: "Products",
-    methods: {
-      showProduct (product) {
-        var i, tabcontent, tablink;
-        tabcontent = document.getElementsByClassName("tabscontent");
-      }
+    props: {
+      initialTab: String,
+      tabs: Array
     },
-  }
+    methods: {
+      tabHeadSlotName(tabName) {
+        return `tab-head-${tabName}`;
+      },
+
+      switchTab(tabName) {
+        this.activeTab=tabName;
+      },
+    },
+  };
 </script>
 
 <style>
@@ -62,7 +78,7 @@
   flex-basis: 20%;
   justify-content: center;
 }
-.tabs a {
+.tabs p {
   color:grey;
   padding-left: 8%;
   white-space: none;

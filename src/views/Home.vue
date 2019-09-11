@@ -12,7 +12,10 @@
     <!-- Products -->
     <div class="section color py-5">
       <div class="container">
-        <products/>
+        <products :tabs="tabs" :initialTab="initialTab" />
+        <template slot=tab-head-starter>
+          Starterrrrrrrrrrr
+        </template>
       </div>
     </div>
     <!-- Contact -->
@@ -35,6 +38,12 @@ export default {
     HelloWorld,
     Banner,
     Products,
+  },
+  data () {
+    return {
+      initialTab: "starter",
+      tabs: ["starter", "fiber", "mist", "refill"]
+    };
   }
 }
 </script>
