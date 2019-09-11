@@ -109,10 +109,6 @@ export default {
     color: black;
 }
 
-.onhide {
-    animation: fadeOut 1 ease-out;
-}
-
 .onShow1 {
     animation: fadeIn1 0.6s ease-in;
 }
@@ -144,6 +140,12 @@ export default {
     0% {
         opacity: 0;
     }
+}
+
+@keyframes fadeIn2 {
+    0% {
+        opacity: 0;
+    }
 
     60% {
         opacity: 0;
@@ -153,6 +155,7 @@ export default {
         opacity: 1;
     }
 }
+
 
 @keyframes fadeIn3 {
     0% {
