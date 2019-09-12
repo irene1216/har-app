@@ -4,34 +4,100 @@
     <HelloWorld msg="Har Studio."/>
 
     <!-- banner -->
-    <div class="section mt-5">
+    <div class="section banner mt-5">
       <div class="container">
         <banner/>
+        <img class="arrow" src="@/assets/arrow-down.svg">
       </div>
     </div>
-        <img class="arrow" src="@/assets/arrow-down.svg">
     <!-- Products -->
     <div class="section color py-5">
       <div class="container">
-       <products :tabs="tabs" :initialTab="initialTab">
-        <template slot="tab-head-starter">
-          Har Starter Kit
-       </template>
-       <template slot="tab-panel-starter">
-        <h1>Har Starter Kit</h1>
-        <p>Starterrrrrrrrrrr</p>
-      </template>
-    </products>
+        <products :tabs="tabs" :initialTab="initialTab">
+          <!-- Har Fiber -->
+          <template slot="tab-head-fiber">
+            Har Fiber
+          </template>
+          <template class="tab-content" slot="tab-panel-fiber">
+            <div class="col-6"style="background:blue;">
+              <img src="">
+            </div>
+            <div class="col-6">
+              <div class="tab-content-text">
+                <h1>Har Fiber</h1>
+                <p class="amount">Size: (2-4 weeks depending on individual consumption)</p>
+                <hr>
+                <p>HAVE HAIR FIBERS are made from naturally colored organic cotton fibers. HAVE HAIR FIBER naturally blends with your existing hair and conceals thinned and bald areas. The fibers bind static to your existing strands of hair, giving a thick and dense look in just 30 seconds.</p>
+                <h2>Instructions</h2>
+                <ol>
+                  <li>Spray HAIR FIBER over thinned areas</li>
+                  <li>Adjust the amount of applied fibers as needed</li>
+                  <li>Spray HAIR FIBER over thinned areas</li>
+                </ol>
+                <h2>Ingredients</h2>
+                <p>Gossypium Herbaceum Fiber<br>Mineral-based color pigments</p>
+                <h2>Colors:</h2>
+              </div>
+            </div>
+          </template>
+          <!-- Har Starter Kit -->
+          <template slot="tab-head-starter">
+            Har Starter Kit
+          </template>
+          <template class="tab-content" slot="tab-panel-starter">
+            <div class="col-6"style="background:blue;">
+              <img src="">
+            </div>
+            <div class="col-6">
+              <div class="tab-content-text">
+                <div class="title px-5">
+                  <h1>Har Fiber</h1>
+                  <p class="amount">Size: (2-4 weeks depending on individual consumption)</p>
+                </div>
+              </div>
+            </div>
+          </template>
+          <!-- Har mist -->
+          <template slot="tab-head-mist">
+            Har Mist
+          </template>
+          <template class="tab-content" slot="tab-panel-mist">
+            <div class="col-6"style="background:blue;">
+              <img src="">
+            </div>
+            <div class="col-6">
+              <div class="tab-content-text">
+                <h1>Har Mist</h1>
+                <p>Starterrrrrrrrrrr</p>
+              </div>
+            </div>
+          </template>
+          <!-- Har Refill -->
+          <template slot="tab-head-refill">
+            Har Refill
+          </template>
+          <template class="tab-content" slot="tab-panel-refill">
+            <div class="col-6"style="background:blue;">
+              <img src="">
+            </div>
+            <div class="col-6">
+              <div class="tab-content-text">
+                <h1>Har Refill</h1>
+                <p>Starterrrrrrrrrrr</p>
+              </div>
+            </div>
+          </template>
+        </products>
+      </div>
     </div>
+    <!-- Contact -->
+    <div class="section">
+    </div>
+    <!-- footer -->
+
+
+
   </div>
-  <!-- Contact -->
-  <div class="section">
-  </div>
-  <!-- footer -->
-
-
-
-</div>
 </template>
 
 <script>
@@ -48,8 +114,8 @@ export default {
   },
   data () {
     return {
-      initialTab: "starter",
-      tabs: ["starter", "Har Fiber", "Har Mist", "Har Refill"]
+      initialTab: "fiber",
+      tabs: ["fiber","starter", "mist", "refill"]
     };
   }
 }
@@ -58,8 +124,6 @@ export default {
 <style>
 
 /*general styling*/
-
-
 .home {
   height:100vh;
 }
@@ -68,13 +132,13 @@ export default {
   height:100%;
 }
 
+.banner{
+  height:85%;
+}
 .color{
   background:#EDEAE5;
 }
 
-.section{
-  height:100%;
-}
 
 .btn-black{
   background: black;
@@ -92,9 +156,12 @@ export default {
   margin:0;
 }
 
-.title {
-  margin-top: 10px;
-  margin-bottom: 20px;
+/*product section*/
+
+.tab-content-text{
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+  text-align: left;
 }
 
 .description {
