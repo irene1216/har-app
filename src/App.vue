@@ -17,7 +17,6 @@
       SideBar,
     },
     method: {
-
     },
   }
 </script>
@@ -38,14 +37,22 @@ h2{
   font-family: "Roboto", sans-serif, Arial, sans-serif;
   font-size:1.25em;
   text-align:left;
+  font-weight:bold;
 }
 
 p{
   font-family: "Roboto", sans-serif, Arial, sans-serif;
   font-size:1em;
+  color:grey;
 }
 
 ul {
+  font-family: "roboto";
+  list-style-type: none;
+}
+
+ol {
+  font-family: "roboto";
   list-style-type: none;
 }
 

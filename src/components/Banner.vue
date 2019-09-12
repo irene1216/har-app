@@ -1,10 +1,10 @@
 <template>
-  <div class="row">
-    <div class="banner">
+  <div class="banner">
+   <div class="row">
     <div class="col-lg-6 col-sm-12">
       <div class="banner-image">
         <div class="banner-image-background">
-          <img alt="man" src="../assets/alex_right.png"/>
+          <b-img fluid alt="Responsive image" src="../assets/alex_right.png"/>
         </div>
       </div>
     </div>
@@ -18,7 +18,10 @@
       </div>
     </div>
   </div>
-  </div>
+
+      <img class="arrow" src="@/assets/arrow-down.svg">
+
+</div>
 
 </template>
 
@@ -29,16 +32,9 @@
 </script>
 
 
-<style>
-
-.banner{
-  width:100%;
-  height:80%;
-
-}
+<style scoped>
 
 .banner-image {
-  /*  flex-basis: 50%;*/
   position: relative;
   flex-direction: column;
   align-items: center;
@@ -46,22 +42,19 @@
 
 .banner-image-background{
   background:#F2F04F;
-  position: relative;
-  z-index: 0;
-  height:500px;
-  width:500px;
-}
-
-.banner-image img{
-  width:100%;
-  z-index: 1;
-  position: absolute;
-  left:0;
 }
 
 .banner-text{
   justify-content: center;
   height: 100%;
+}
+
+.arrow {
+  width: 25px;
+  position: absolute;
+  bottom:5%;
+  transform-origin: 20% 20%;
+  animation: jump 1s linear alternate infinite;
 }
 
 </style>
