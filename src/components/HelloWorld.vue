@@ -1,6 +1,8 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <div class="responsive-h1">
+      <h1>{{ msg }}</h1>
+    </div>
 
 </div>
 </template>
@@ -18,7 +20,9 @@ export default {
 <style scoped>
 h1{
   font-size: 4em;
-  text-align: center;
+  text-align: right;
+  width: 330px;
+  /*white-space: nowrap;*/
 }
 h3 {
   margin: 40px 0 0;
@@ -33,5 +37,15 @@ li {
 }
 a {
   color: #42b983;
+}
+
+.responsive-h1 {
+  display: flex;
+  justify-content: center;
+  padding-right: 20px;
+}
+
+.hello {
+  padding-left: 10vh;
 }
 </style>

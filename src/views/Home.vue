@@ -13,7 +13,7 @@
     <!-- Products -->
     <div class="section color py-5">
       <div class="container">
-        <products :tabs="tabs" :initialTab="initialTab">
+       <products :tabs="tabs" :initialTab="initialTab">
         <template slot="tab-head-starter">
           Har Starter Kit
        </template>
@@ -102,6 +102,8 @@ export default {
   max-width: 85%;
   line-height: 22px;
   margin-bottom: 10px;
+}
+
 .arrow {
   width: 25px;
   position: absolute;
