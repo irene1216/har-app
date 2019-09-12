@@ -1,12 +1,10 @@
 <template>
-  <div class="faqbox" >
-      <div class="questions" v-for="question in questions">
-        <!-- <div class="color"></div> -->
-        <div class="question" v-on:click="$emit('show:question',question.id)">
-          <h6 v-bind:class="{'active-question' : activeId === question.id}">{{question.question}}</h6>
-          <img v-bind:class="{'active-arrow' : activeId === question.id}" src="../assets/arrow-down.svg" />
-        </div>
+  <div class="faqbox">
+    <div class="questions" v-for="question in questions">
+      <div v-on:click="$emit('show:question',question.id)" v-bind:class="[activeId === question.id ? 'active' : 'faq-color']">
+        <h6>{{"&nbsp &nbsp" + question.question}}</h6>
       </div>
+    </div>
   </div>
 </template>
 <script scoped>
@@ -14,8 +12,8 @@ export default {
   name: "faq-box",
   props: {
     questions: Array,
-    activeId: null,
-    // showing: Number,
+    activeId: Number,
+    hover: Boolean,
   },
   data() {
     return {}
@@ -23,49 +21,62 @@ export default {
 };
 </script>
 <style>
-
 .questions {
-  width: 50%;
-  background: rgb (0,0,0,0);
+  height: 50px;
 }
 
-/*.color {
-  background: rgb(207,231,205);
+.qq {
+  font-size: 1000px;
+}
+
+.faq-color {
+  background: rgb(238, 140, 52);
   display: float;
+  height: 35px;
+  top: 28px;
+  right: 10px;
+  width: 0px;
+  -webkit-transition: width 2s;
+  /* For Safari 3.1 to 6.0 */
+  transition: width 2s;
+  white-space: nowrap;
+  color: grey;
+}
+
+.active {
+  background: rgb(238, 140, 52);
+  display: float;
+  height: 35px;
+  top: 28px;
+  right: 10px;
   width: 400px;
-  height: 100px;
-  bottom: 50px;
-}*/
+  -webkit-transition: width 2s;
+  /* For Safari 3.1 to 6.0 */
+  transition: width 2s;
+  white-space: nowrap;
+  color: black;
+  /*border-right: 3px solid black;*/
+
+}
+
+.faq-color:hover {
+  width: 400px;
+}
 
 .active-question {
   color: black;
 }
 
-.question:hover{
-  display: float;
-  background: rgb(215,234,237);
-  -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
-  transition: width 2s;
+.active>h6 {
+  padding-top: 6px;
+  padding-right: 6px;
+  text-align: right;
 }
 
-.question {
-  display: flex;
-  justify-content: space-between;
-  overflow-x: auto;
-  padding-right: 15px;
-  text-align: left;
-  width: 400px;
-  color: grey;
-}
 
-.question>h6 {
-  margin-top: 20px;
-  padding-right: 10px;
-}
-
-.question>img {
-  width: 13px;
-  margin-top: 15px;
-  /*transform: rotate(-90deg);*/
+.faq-color>h6 {
+  padding-top: 6px;
+  padding-right: 6px;
+  text-align: right;
 }
 </style>

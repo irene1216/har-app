@@ -1,5 +1,5 @@
 # har-app
-
+Using Vue.js front-end framework to build a brochure style web app for Har.
 ## Project setup
 ```
 npm install
@@ -23,6 +23,12 @@ npm run test
 ### Lints and fixes files
 ```
 npm run lint
+```
+
+### Remove package
+Change package.json
+```
+npm prune <pkg> --  production
 ```
 
 ### Customize configuration
