@@ -1,13 +1,14 @@
 <template>
-  <div class="banner d-flex">
-    <div class="col-6">
-      <div class="banner-image d-flex flex-column">
+  <div class="row">
+    <div class="banner">
+    <div class="col-lg-6 col-sm-12">
+      <div class="banner-image">
         <div class="banner-image-background">
+          <img alt="man" src="../assets/alex_right.png"/>
         </div>
-        <img alt="man" src="../assets/alex_right.png"/>
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-lg-6 col-sm-12">
       <div class="banner-text d-flex flex-column ml-5">
         <h2>
           Natural looking dense hair in just 30 seconds.
@@ -17,6 +18,8 @@
       </div>
     </div>
   </div>
+  </div>
+
 </template>
 
 <script>
@@ -43,7 +46,7 @@
 
 .banner-image-background{
   background:#F2F04F;
-  position: absolute;
+  position: relative;
   z-index: 0;
   height:500px;
   width:500px;
@@ -53,7 +56,7 @@
   width:100%;
   z-index: 1;
   position: absolute;
-
+  left:0;
 }
 
 .banner-text{
