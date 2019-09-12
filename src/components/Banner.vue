@@ -1,19 +1,22 @@
 <template>
   <div class="banner d-flex">
-    <div class="banner-image d-flex flex-column">
-      <div class="banner-image-background">
+    <div class="col-6">
+      <div class="banner-image d-flex flex-column">
+        <div class="banner-image-background">
+        </div>
+        <img alt="man" src="../assets/alex_right.png"/>
       </div>
-      <img alt="man" src="../assets/alex_right.png"/>
     </div>
-    <div class="banner-text d-flex flex-column ml-5">
-      <h2>
-        Natural looking dense hair in just 30 seconds.
-      </h2>
-      <h1>Get Back Your Confidence with Har.</h1>
-      <button class="btn-black"><h2>Shop Har</h2></button>
+    <div class="col-6">
+      <div class="banner-text d-flex flex-column ml-5">
+        <h2>
+          Natural looking dense hair in just 30 seconds.
+        </h2>
+        <h1>Get Back Your Confidence with Har.</h1>
+        <button class="btn-black"><h2>Shop Har</h2></button>
+      </div>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -32,7 +35,7 @@
 }
 
 .banner-image {
-  flex-basis: 50%;
+  /*  flex-basis: 50%;*/
   position: relative;
   flex-direction: column;
   align-items: center;
@@ -42,8 +45,8 @@
   background:#F2F04F;
   position: absolute;
   z-index: 0;
-  height:70%;
-  width:80%;
+  height:500px;
+  width:500px;
 }
 
 .banner-image img{
@@ -54,8 +57,8 @@
 }
 
 .banner-text{
-  flex-basis:50%;
   justify-content: center;
+  height: 100%;
 }
 
 </style>
