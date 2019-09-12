@@ -2,16 +2,15 @@
   <div class="home">
     <!-- header -->
     <HelloWorld msg="Har Studio."/>
-
     <!-- banner -->
-    <div class="section banner mt-5">
+    <div class="section mt-5">
       <div class="container">
-        <banner/>
+          <banner/>
         <img class="arrow" src="@/assets/arrow-down.svg">
       </div>
     </div>
     <!-- Products -->
-    <div class="section color py-5">
+    <div class="section beige-bg py-5">
       <div class="container">
         <products :tabs="tabs" :initialTab="initialTab">
           <!-- Har Fiber -->
@@ -95,8 +94,6 @@
     </div>
     <!-- footer -->
 
-
-
   </div>
 </template>
 
@@ -132,13 +129,14 @@ export default {
   height:100%;
 }
 
-.banner{
-  height:85%;
-}
-.color{
-  background:#EDEAE5;
+.section {
+  height:90%;
+  display:;
 }
 
+.beige-bg {
+  background:#EDEAE5;
+}
 
 .btn-black{
   background: black;
