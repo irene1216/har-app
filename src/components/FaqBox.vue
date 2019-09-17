@@ -30,7 +30,7 @@ export default {
 }
 
 .faq-color {
-  background: rgb(238, 140, 52);
+  background: #F2F04F;
   display: float;
   height: 35px;
   top: 28px;
@@ -44,14 +44,13 @@ export default {
 }
 
 .active {
-  background: rgb(238, 140, 52);
+  background: #F2F04F;
   display: float;
   height: 35px;
   top: 28px;
   right: 10px;
   width: 400px;
   -webkit-transition: width 2s;
-  /* For Safari 3.1 to 6.0 */
   transition: width 2s;
   white-space: nowrap;
   color: black;

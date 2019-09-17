@@ -1,11 +1,12 @@
 <template>
   <div class="all">
-    <side-bar @isHidden />
     <div id="app">
       <transition name="moveInUp">
        <router-view />
       </transition>
+    <!-- <bottom-footer brand="Har Studio." /> -->
     </div>
+
   </div>
 </template>
 
@@ -13,20 +14,28 @@
   import SideBar from '@/components/SideBar.vue'
   export default {
     name: 'app',
+    data() {
+      return {
+      }
+    },
     components: {
       SideBar,
-    },
-    method: {
-    },
+    }
   }
 </script>
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Niramit:700|Roboto|Staatliches&display=swap');
+@import url('https://use.fontawesome.com/releases/v5.2.0/css/all.css"');
 
 #app {
   font-family: "Niramit", sans-serif, Arial, sans-serif;
   text-align: center;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
 }
 
 h1{
@@ -71,18 +80,5 @@ ol {
     opacity: 1;
   }
 }
-
-/*.moveInUp-leave-active {
-  animation: moveInUp .3s ease-in;
-}
-
-@keyframes moveInUp {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-400px);
-  }
-}*/
 
 </style>

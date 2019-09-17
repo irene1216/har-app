@@ -1,16 +1,16 @@
 <template>
-  <div class="sidebar">
+  <div class="sidebar" >
     <div class="nav">
       <div class="nav-menu">
-        <img class="menu-toggle" v-on:click="isHidden = !isHidden" alt="bento Go!" src="@/assets/bento-menu.svg" style="width: 25px" />
-        <div class="menu-list" v-if="!isHidden" v-on:click="isHidden = !isHidden" v-bind:class="{ onhide: isHidden == true }">
+        <img class="menu-toggle" @click="handlerOne" alt="bento Go!" src="@/assets/bento-menu.svg" style="width: 25px" />
+        <div class="menu-list" v-if="!isHidden" @click="handlerOne" v-bind:class="{ onhide: isHidden == true }">
           <router-link v-bind:class=" { onShow1: !isHidden }" class="menu-item" to="/">Home</router-link>
           <router-link v-bind:class=" { onShow2: !isHidden }" class="menu-item" to="/about">About Us</router-link>
           <router-link v-bind:class=" { onShow3: !isHidden }" class="menu-item" to="/faq">FAQ</router-link>
         </div>
       </div>
-      <div class="nav-logo">Har Studio.</div>
-      <div class="nav-menu">
+      <div class="nav-logo" >{{ brand }}</div>
+      <div class="nav-menu" v-scroll="handleScroll"  >
         <a href="https://www.youtube.com/channel/UC0JQ6FRCunSej59MF1S3wgQ" target="_blank"><i class="fab fa-youtube"></i></a>
         <a href="http://instagram.com/harstudio.dk" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://www.facebook.com/harstudio.dk" target="_blank"><i class="fab fa-facebook-f"></i></a>
@@ -23,27 +23,35 @@ export default {
   beforeUpdate() {
     console.log("Updating :D")
   },
-
-  //         beforeMount() {
-  //   console.log(`this.$el doesn't exist yet, but it will soon!`)
-  // },
-  //   mounted() {
-  //   console.log(this.$el.textContent) // I'm text inside the component.
-  // },
   name: "SideBar",
+    methods: {
+      handlerOne () {
+        console.log("hidingggg")
+        this.isHidden = !this.isHidden
+      },
+      handleScroll: function (evt, el) {
+        if (window.scrollY > 50) {
+          console.log(window)
+          el.setAttribute(
+            'style',
+            'opacity: 1; transform: translate3d(0, -10vh, 0)'
+          )
+        }
+        return window.scrollY > 100
+      }
+    },
   data() {
     return {
-      isHidden: true
+      isHidden: true,
     };
   },
-  method: {
-    isHidden: function(event) {
-      console.log(event)
-    }
+  props: {
+    brand: String
   }
 }
 </script>
-<style>
+<style scoped>
+
 .nav {
   position: fixed;
   float: left;
@@ -61,20 +69,23 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: 0.7s all cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
-.nav-menu>a {
+.nav-menu > a {
   text-decoration: none;
   color: black;
 }
 
-.nav-menu>a:hover {
+.nav-menu > a:hover {
   color: rgb(241, 89, 66);
 }
 
 
 .nav-menu * {
   display: block;
+  text-align: left;
+  font-family: Arial;
 }
 
 .nav-menu *+* {

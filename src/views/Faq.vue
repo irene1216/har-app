@@ -1,34 +1,48 @@
 <template>
-  <div class="faq">
-    <HelloWorld msg="Har Studio." />
-    <div class="faq-box">
-      <h2 class="header pb-4">FAQs</h2>
-      <div class="box">
-      <faq-box
-        :questions="questions"
-        :activeId="activeId"
-        @show:question="showQuestion"
-      />
-      <div
-        v-if="showing.id !=undefined"
-        v-bind:class="[ showing.id !=undefined ? 'active-answer' : 'answer' ]"
-      >
-        <p>{{showing.answer}}</p>
+  <div class="big-wrapper">
+    <div class="top-wrap">
+    <side-bar />
+      <SmallLogo msg="Har Studio." />
+      <div class="faq-box">
+        <h2 class="header pb-4">FAQs</h2>
+        <div class="box">
+        <faq-box
+          :questions="questions"
+          :activeId="activeId"
+          @show:question="showQuestion"
+        />
+        <transition name="slide-fade" mode="out-in">
+          <div
+            v-if="showing.id !=undefined"
+            v-bind:class="[ showing.id !=undefined ? 'active-answer' : 'answer' ]"
+            :key="showing.answer"
+          >
+            <p>{{showing.answer}}</p>
+          </div>
+        </transition>
+        </div>
       </div>
-      </div>
+    </div>
+    <div class="bot-wrap">
+      <bottom-footer v-scroll="handleScroll" class="effect-box" brand="Har Studio." />
     </div>
   </div>
 </template>
 <script>
-import HelloWorld from "@/components/HelloWorld.vue";
+import SmallLogo from "@/components/SmallLogo.vue";
 import FaqBox from "@/components/FaqBox.vue";
 import axios from 'axios';
+import SideBar from '@/components/SideBar.vue';
+import BottomFooter from '@/components/BottomFooter.vue'
+
 
 export default {
   name: "Faq",
   components: {
-    HelloWorld,
+    SmallLogo,
     FaqBox,
+    SideBar,
+    BottomFooter,
   },
   data() {
     return {
@@ -42,31 +56,30 @@ export default {
     this.fetchData()
   },
   methods: {
+    handleScroll: function (evt, el) {
+      if (window.scrollY > 50) {
+        el.setAttribute(
+          'style',
+          'opacity: 1; transform: translate3d(0, 0px, 0)'
+        )
+      }
+      return window.scrollY > 100
+    },
     fetchData() {
       axios.get(this.baseUrl + 'data.json').then(response => {
         this.questions = response.data;
       })
-    },
-    mouseover (e) {
-      this.hover = true
-    },
-    mouseleave (e) {
-      this.hover = false
     },
     showQuestion(id) {
       console.log(id)
       if (this.showing.id === id) {
         this.showing = {}
         this.activeId = null
-                          console.log(this.activeId)
-
       } else {
         this.questions.forEach((question) => {
           if (question.id === id) {
             this.showing = question
             this.activeId = id
-                  console.log(this.activeId)
-
           }
         })
       }
@@ -74,7 +87,11 @@ export default {
   }
 }
 </script>
-<style scope>
+<style>
+.top-wrap {
+  height: 110vh;
+}
+
 .box {
   display: flex;
   justify-content: space-between;
@@ -82,21 +99,42 @@ export default {
 
 .header {
   border-bottom: 5px solid black;
-  width: 100vw;
+  width: 80vw;
+  font-size: 28px;
+  margin-bottom: 30px;
 }
 
 .active-answer {
+  padding-left: 20px;
   font-size: 0.8em;
   text-align: left;
-  width: 50vw;
-  padding: 15px;
-  /*padding-left: vw;*/
-  padding-right: 13vw;
-  /*background: rgb(238,140,52);*/
+  width: 37vw;
+  -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+}
+
+.active-answer > p {
+  padding-left: 20px;
+  text-align: left;
+  width: 37vw;
     -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
-  transition: width 2s;
-  border-right: 5px solid black;
-},
+}
+
+.slide-fade-enter-active {
+  transition: all 1s ease;
+}
+.slide-fade-leave-active {
+  transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for <2.1.8 */ {
+  transform: translateX(0px);
+  opacity: 0;
+}
+
+.big-wrapper {
+  display: flex;
+  flex-direction: column;
+}
 
 .answer {
   font-size: 0.8em;
@@ -110,7 +148,8 @@ export default {
   height: 100%;
   padding-top: 8vh;
   padding-bottom: 8vh;
-  left: 100px;
+  left: 12vw;
+  right: 12vw;
   position: fixed;
 }
 </style>

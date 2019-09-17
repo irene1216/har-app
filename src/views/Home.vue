@@ -1,6 +1,8 @@
 <template>
   <div class="home">
+    <side-bar />
     <!-- header -->
+
     <HelloWorld msg="Har Studio."/>
     <!-- banner -->
     <div class="section banner">
@@ -133,6 +135,7 @@
 
 <script>
 // @ is an alias to /src
+import SideBar from '@/components/SideBar.vue'
 import HelloWorld from "@/components/HelloWorld.vue";
 import Banner from "@/components/Banner.vue";
 import Products from "@/components/Products.vue";
@@ -142,6 +145,7 @@ export default {
     HelloWorld,
     Banner,
     Products,
+    SideBar,
   },
   data () {
     return {
