@@ -1,5 +1,5 @@
 <template>
-  <div class="products d-flex">
+  <div class="products d-flex align-items-center">
     <!-- tabs -->
     <!-- div class="col-2"> -->
       <header class="product-header">
