@@ -10,7 +10,7 @@
         </div>
       </div>
         <div v-scroll="handleLogo" class="nav-logo">{{ brand }}</div>
-      <div class="nav-menu" v-scroll="handleScroll"  >
+      <div class="nav-menu" v-scroll="handleSocial"  >
         <a href="https://www.youtube.com/channel/UC0JQ6FRCunSej59MF1S3wgQ" target="_blank"><i class="fab fa-youtube"></i></a>
         <a href="http://instagram.com/harstudio.dk" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://www.facebook.com/harstudio.dk" target="_blank"><i class="fab fa-facebook-f"></i></a>
@@ -28,21 +28,6 @@ export default {
       handlerOne () {
         this.isHidden = !this.isHidden
       },
-      handleScroll: function (evt, el) {
-          console.log(window.scrollY)
-        if (window.scrollY > 30) {
-          el.setAttribute(
-            'style',
-            'opacity: 1; transform: translate3d(0, -10vh, 0);'
-          )
-        }
-        else if (window.scrollY === 0) {
-          el.setAttribute(
-            'style',
-            'opacity: 1; transform: translate3d(0, 0, 0); transition: 1s all cubic-bezier(0.39, 0.575, 0.565, 1)'
-          )
-        }
-      },
     },
   data() {
     return {
@@ -52,6 +37,7 @@ export default {
   props: {
     brand: String,
     handleLogo: Function,
+    handleSocial: Function,
   }
 }
 </script>

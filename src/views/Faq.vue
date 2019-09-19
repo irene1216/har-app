@@ -1,7 +1,7 @@
 <template>
   <div class="big-wrapper">
     <div class="top-wrap">
-    <side-bar :handleLogo="handleLogo" :brand="sideLogo" />
+    <side-bar :handleLogo="handleLogo" :handleSocial="handleSocial" :brand="sideLogo" />
       <SmallLogo :msg="smallLogo" />
       <div class="faq-box">
         <transition
@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="bot-wrap">
-      <bottom-footer v-scroll="handleScroll" class="effect-box" brand="Har Studio." />
+      <bottom-footer v-scroll="handleScroll" brand="Har Studio." />
     </div>
   </div>
 </template>
@@ -63,6 +63,21 @@ export default {
     this.fetchData()
   },
   methods: {
+    handleSocial: function (evt, el) {
+        console.log(window.scrollY)
+      if (window.scrollY > 30) {
+        el.setAttribute(
+          'style',
+          'opacity: 1; transform: translate3d(0, -10vh, 0);'
+        )
+      }
+      else if (window.scrollY === 0) {
+        el.setAttribute(
+          'style',
+          'opacity: 1; transform: translate3d(0, 0, 0); transition: 1s all cubic-bezier(0.39, 0.575, 0.565, 1)'
+        )
+      }
+    },
     handleLogo: function (evt, el) {
       if (window.scrollY > 50) {
         el.setAttribute(
@@ -70,7 +85,6 @@ export default {
           ''
         )
       }
-      return window.scrollY > 100
     },
     handleScroll: function (evt, el) {
       if (window.scrollY > 50) {

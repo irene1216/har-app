@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <side-bar />
+    <side-bar :handleLogo="handleLogo" :handleSocial="handleSocial" :brand="sideLogo" />
+
     <!-- header -->
 
     <HelloWorld msg="Har Studio."/>
@@ -127,18 +128,23 @@
     </div>
     <!-- Contact -->
     <div class="section">
+      <ContactUs />
     </div>
     <!-- footer -->
+      <bottom-footer v-scroll="handleScroll" brand="Har Studio." />
 
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import SideBar from '@/components/SideBar.vue'
+import SideBar from '@/components/SideBar.vue';
 import HelloWorld from "@/components/HelloWorld.vue";
 import Banner from "@/components/Banner.vue";
 import Products from "@/components/Products.vue";
+import ContactUs from "@/components/ContactUs.vue";
+import BottomFooter from '@/components/BottomFooter.vue';
+
 export default {
   name: "home",
   components: {
@@ -146,34 +152,73 @@ export default {
     Banner,
     Products,
     SideBar,
+    ContactUs,
+    BottomFooter,
   },
   data () {
     return {
+      sideLogo: "Har Studio.",
       initialTab: "fiber",
       tabs: ["fiber","starter", "mist", "refill"],
-      products:[{
+      product: {
         productId: 1,
         productColor: "Black",
-        productImg:'../assets/Black.jpg',
-      },{
-        productId: 2,
-        productColor: "Wlack",
-        productImg:'../assets/White.jpg',
+        productImg:'/src/assets/Black.jpg',
       }
-      ]
     };
   },
   methods:{
     updateProduct(productImg){
       this.image = productImg
-    }
+    },
+    handleSocial: function (evt, el) {
+        console.log(window.scrollY)
+      if (window.scrollY > 1600) {
+        el.setAttribute(
+          'style',
+          'opacity: 1; transform: translate3d(0, -10vh, 0);'
+        )
+      }
+      else if (window.scrollY < 1600) {
+        el.setAttribute(
+          'style',
+          'opacity: 1; transform: translate3d(0, 0, 0); transition: 1s all cubic-bezier(0.39, 0.575, 0.565, 1)'
+        )
+      }
+    },
+    handleLogo: function (evt, el) {
+      console.log(window.scrollY)
+      if (window.scrollY > 100) {
+        el.setAttribute(
+          'style',
+          'opacity: 1; transform: translate3d(0, 0px, 0); transform: rotate(-90deg); transition: 2s all cubic-bezier(0.39, 0.575, 0.565, 1)'
+        )
+      }
+      else if (window.scrollY < 1350) {
+        el.setAttribute(
+          'style',
+          'opacity: 0; transform: translate3d(0, 0px, 0); transform: rotate(-90deg); transition: 2s all cubic-bezier(0.39, 0.575, 0.565, 1)'
+        )
+      }
+    },
+    handleScroll: function (evt, el) {
+      if (window.scrollY > 1500) {
+        el.setAttribute(
+          'style',
+          'opacity: 1; transform: translate3d(0, 0px, 0)'
+        )
+      }
+      return window.scrollY > 100
+    },
   }
 }
 
 </script>
 
 <style>
-
+.photo {
+  height: 30vh;
+}
 /*General*/
 .home {
   height:100vh;
@@ -187,24 +232,6 @@ export default {
 .beige-bg {
   background:#EDEAE5;
 }
-
-/*buttons*/
-.btn-black{
-  background: black;
-  color:white;
-  height:45px;
-  width:75%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10%;
-  border:none;
-}
-
-.btn-black h2{
-  margin:0;
-}
-
 /*product section*/
 hr{
   border: 0.5px solid black;

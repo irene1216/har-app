@@ -1,13 +1,13 @@
 <template>
   <div class="about">
     <div class="content">
-    <side-bar :handleLogo="handleLogo" :brand="sideLogo" />
+    <side-bar :handleSocial="handleSocial" :handleLogo="handleLogo" :brand="sideLogo" />
       <SmallLogo v-scroll="handleTopLogo" :msg="smallLogo" />
         <transition
           appear
           appear-active-class="image-enter-active"
         >
-          <img class="about-img"src="../assets/alex_about.png"/>
+          <img class="about-img" src="../assets/alex_about.png"/>
         </transition>
       <div class="slogen">
         <h2>
@@ -25,7 +25,7 @@
         </div>
     </transition>
     </div>
-    <bottom-footer v-scroll="handleScroll" class="effect-box" brand="Har Studio." />
+    <bottom-footer v-scroll="handleFooter" class="effect-box" brand="Har Studio." />
   </div>
 </template>
 
@@ -43,10 +43,9 @@ import BottomFooter from '@/components/BottomFooter.vue'
     methods: {
       handleLogo: function (evt, el) {
         if (window.scrollY > 20) {
-          console.log(window)
           el.setAttribute(
             'style',
-            'opacity: 1; transform: translate3d(0, 0px, 0); transform: rotate(-90deg); transition: 2s all cubic-bezier(0.39, 0.575, 0.565, 1)'
+            'opacity: 0; transform: translate3d(0, 0px, 0); transform: rotate(-90deg); transition: 2s all cubic-bezier(0.39, 0.575, 0.565, 1)'
           )
         }
         else if (window.scrollY === 0) {
@@ -70,14 +69,36 @@ import BottomFooter from '@/components/BottomFooter.vue'
           )
         }
       },
-      handleScroll: function (evt, el) {
+      handleFooter: function (evt, el) {
+          console.log(window.scrollY)
         if (window.scrollY > 50) {
           el.setAttribute(
             'style',
-            'opacity: 1; transform: translate3d(0, 0px, 0);'
+            'opacity: 1; transform: translate3d(0, 0px, 0)'
           )
         }
-      }
+        else if (window.scrollY === 0) {
+          el.setAttribute(
+            'style',
+            'opacity: 0; transform: translate3d(0, 0, 0); transition: 1s all cubic-bezier(0.39, 0.575, 0.565, 1)'
+          )
+        }
+      },
+      handleSocial: function (evt, el) {
+          console.log(window.scrollY)
+        if (window.scrollY > 30) {
+          el.setAttribute(
+            'style',
+            'opacity: 1; transform: translate3d(0, -10vh, 0);'
+          )
+        }
+        else if (window.scrollY === 0) {
+          el.setAttribute(
+            'style',
+            'opacity: 1; transform: translate3d(0, 0, 0); transition: 1s all cubic-bezier(0.39, 0.575, 0.565, 1)'
+          )
+        }
+      },
     },
     data() {
       return {

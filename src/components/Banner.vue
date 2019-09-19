@@ -14,7 +14,7 @@
           Natural looking dense hair in just 30 seconds.
         </h2>
         <h1>Get Back Your Confidence with Har.</h1>
-        <button class="btn-black"><h2>Shop Har</h2></button>
+        <Button :buttonWidth=400 :buttonText="buttonText" />
       </div>
     </div>
   </div>
@@ -26,9 +26,18 @@
 </template>
 
 <script>
-  export default{
-    name: "Banner",
+import Button from '@/components/Button.vue';
+export default{
+  name: "Banner",
+  data(){
+    return {
+      buttonText: "Shop Har"
+    }
+  },
+  components: {
+    Button,
   }
+}
 </script>
 
 
