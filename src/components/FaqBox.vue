@@ -7,6 +7,7 @@
     </div>
   </div>
 </template>
+
 <script scoped>
 export default {
   name: "faq-box",
@@ -20,7 +21,9 @@ export default {
   },
 };
 </script>
-<style>
+
+<style scoped>
+
 .questions {
   height: 50px;
 }

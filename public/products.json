@@ -1,0 +1,82 @@
+[{
+  "id": 1,
+  "name": "Har Fiber",
+  "description": "HAR FIBERS are made from naturally colored organic cotton fibers. HAR FIBERS naturally blends with your existing hair and conceals thinned and bald areas. The fibers bind static to your existing strands of hair, giving a thick and dense look in just 30 seconds.",
+  "size": "12g (Can last for 2-4 weeks depending on individual consumption)",
+  "img":"/img/Black.44b5020d.jpg",
+  "instructions": [
+    "Shake liberally onto thinning areas",
+    "Gently pat hair to disperse fibers",
+    "Style as usual",
+    "For greater durability, follow with HAR MIST",
+    "Shampoo normally to remove fibers"
+  ],
+  "ingredients": ["Gossypium Herbaceum Fiber",
+    "Mineral-based color pigments"
+  ],
+  "colors": [{
+    "cId": 1,
+    "cName": "black",
+    "cImg": "/img/Black.44b5020d.jpg"
+  }, {
+    "cId": 2,
+    "cName": "white",
+    "cImg": "/img/White.1c558981.jpg"
+  }, {
+    "cId": 3,
+    "cName": "grey",
+    "cImg": "/img/Grey.593f7164.jpg"
+  }, {
+    "cId": 4,
+    "cName": "dark brown",
+    "cImg": "/img/DBrown.60a33b02.jpg"
+  }, {
+    "cId": 5,
+    "cName": "medium brown",
+    "cImg": "/img/MedBrown.bc4951e2.jpg"
+  }, {
+    "cId": 6,
+    "cName": "light brown",
+    "cImg": "/img/LiBrown.42869159.jpg"
+  }, {
+    "cId": 7,
+    "cName": "blonde",
+    "cImg": "/img/Blonde.d3c6094c.jpg"
+  }, {
+    "cId": 8,
+    "cName": "light blonde",
+    "cImg": "/img/LiBlonde.73c97fac.jpg"
+  }, {
+    "cId": 9,
+    "cName": "medium blonde",
+    "cImg": "/img/MedBlonde.3e76de01.jpg"
+  }, {
+    "cId": 10,
+    "cName": "auburn",
+    "cImg": "/img/Auburn.c85a62f1.jpg"
+  }]
+}, {
+  "id": 2,
+  "name": "Har Mist",
+  "description": "HAR MIST is designed to maximize the effect of HAR FIBER. HAR MIST attach the fibers to your hair and ensures optimum durability, volume and expression. Use after applying HAR FIBER.",
+  "size": "100ml (Can last for 4-6 weeks depending on individual consumption)",
+  "img":"/img/mist.d39b05d3.jpg",
+  "instruction":[],
+  "ingredients": ["Water", "Acrylate", "Propylene Glycol", "Oxidation of Castor Oil", "EDTA-2Na"]
+}, {
+  "id": 3,
+  "name": "Har Refill",
+  "description": "HAR FIBERS are made from naturally colored organic cotton fibers. HAR FIBER naturally blends with your existing hair and conceals thinning areas. The fibers bind static to your existing strands of hair, giving a thick and dense look in just 30 seconds.",
+  "size": "25g (Can last for 4-8 weeks depending on individual consumption)",
+  "img":"/img/refill.f1cc2e97.jpg",
+  "instructions": [
+    "Shake liberally onto thinning areas",
+    "Gently pat hair to disperse fibers",
+    "Style as usual",
+    "For greater durability, follow with HAR MIST",
+    "Shampoo normally to remove fibers"
+  ],
+  "ingredients": ["Gossypium Herbaceum Fiber",
+    "Mineral-based color pigments"
+  ]
+}]

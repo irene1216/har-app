@@ -18,11 +18,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 h1{
   font-size: 4em;
-  text-align: right;
+  text-align: left;
   width: 330px;
-  /*white-space: nowrap;*/
 }
 h3 {
   margin: 40px 0 0;
