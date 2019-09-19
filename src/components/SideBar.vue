@@ -9,7 +9,7 @@
           <router-link v-bind:class=" { onShow3: !isHidden }" class="menu-item" to="/faq">FAQ</router-link>
         </div>
       </div>
-      <div class="nav-logo" >{{ brand }}</div>
+        <div v-scroll="handleLogo" class="nav-logo">{{ brand }}</div>
       <div class="nav-menu" v-scroll="handleScroll"  >
         <a href="https://www.youtube.com/channel/UC0JQ6FRCunSej59MF1S3wgQ" target="_blank"><i class="fab fa-youtube"></i></a>
         <a href="http://instagram.com/harstudio.dk" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -26,19 +26,23 @@ export default {
   name: "SideBar",
     methods: {
       handlerOne () {
-        console.log("hidingggg")
         this.isHidden = !this.isHidden
       },
       handleScroll: function (evt, el) {
-        if (window.scrollY > 50) {
-          console.log(window)
+          console.log(window.scrollY)
+        if (window.scrollY > 30) {
           el.setAttribute(
             'style',
-            'opacity: 1; transform: translate3d(0, -10vh, 0)'
+            'opacity: 1; transform: translate3d(0, -10vh, 0);'
           )
         }
-        return window.scrollY > 100
-      }
+        else if (window.scrollY === 0) {
+          el.setAttribute(
+            'style',
+            'opacity: 1; transform: translate3d(0, 0, 0); transition: 1s all cubic-bezier(0.39, 0.575, 0.565, 1)'
+          )
+        }
+      },
     },
   data() {
     return {
@@ -46,13 +50,14 @@ export default {
     };
   },
   props: {
-    brand: String
+    brand: String,
+    handleLogo: Function,
   }
 }
 </script>
 <style scoped>
-
 .nav {
+  z-index: 1;
   position: fixed;
   float: left;
   padding: 30px;
@@ -93,6 +98,7 @@ export default {
 }
 
 .nav-logo {
+  opacity: 0;
   transform: rotate(-90deg);
   white-space: nowrap;
 }

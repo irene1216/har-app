@@ -37,9 +37,13 @@ p {
 }
 
 .social-media {
+  padding-top: 6px
 }
 
 .social-media > a {
+  margin-top: 10px;
+  padding-right: 15px;
+  /*padding-left: 5px;*/
   text-decoration: none;
   color: white;
 }

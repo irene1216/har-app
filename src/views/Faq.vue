@@ -1,10 +1,15 @@
 <template>
   <div class="big-wrapper">
     <div class="top-wrap">
-    <side-bar />
-      <SmallLogo msg="Har Studio." />
+    <side-bar :handleLogo="handleLogo" :brand="sideLogo" />
+      <SmallLogo :msg="smallLogo" />
       <div class="faq-box">
-        <h2 class="header pb-4">FAQs</h2>
+        <transition
+          appear
+          appear-active-class="header-enter-active"
+        >
+          <h2 class="header pb-4">FAQs</h2>
+        </transition>
         <div class="box">
         <faq-box
           :questions="questions"
@@ -50,12 +55,23 @@ export default {
       questions: [],
       showing: {},
       activeId: null,
+      smallLogo: "Har Studio.",
+      sideLogo: ""
     }
   },
   mounted() {
     this.fetchData()
   },
   methods: {
+    handleLogo: function (evt, el) {
+      if (window.scrollY > 50) {
+        el.setAttribute(
+          'style',
+          ''
+        )
+      }
+      return window.scrollY > 100
+    },
     handleScroll: function (evt, el) {
       if (window.scrollY > 50) {
         el.setAttribute(
@@ -146,7 +162,7 @@ export default {
 }
 .faq-box {
   height: 100%;
-  padding-top: 8vh;
+  padding-top: 22vh;
   padding-bottom: 8vh;
   left: 12vw;
   right: 12vw;
