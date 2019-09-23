@@ -57,6 +57,7 @@
               </div>
             </div>
           </div>
+          <Button :buttonWidth=400 :buttonText="buttonText" />
         </div>
       </div>
     </div>
@@ -87,6 +88,7 @@ import Products from "@/components/Products.vue";
 import axios from 'axios'
 import ContactUs from "@/components/ContactUs.vue";
 import BottomFooter from '@/components/BottomFooter.vue';
+import Button from '@/components/Button.vue';
 
 
 export default {
@@ -98,6 +100,7 @@ export default {
     SideBar,
     ContactUs,
     BottomFooter,
+    Button,
   },
   data () {
     return {
@@ -173,15 +176,6 @@ export default {
       }
       return window.scrollY > 100
     },
-    // showThird: function (evt, el) {
-    //   if (window.scrollY > 1200) {
-    //     el.setAttribute(
-    //       'style',
-    //       'opacity: 0; transform: translate3d(0, 0px, 0)'
-    //     )
-    //   }
-    //   return window.scrollY > 100
-    // },
   }
 }
 
