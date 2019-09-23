@@ -25,10 +25,22 @@
                  name="email"
                  id="email"
                  required=""
+                 v-model="email.value"
           >
         </div>
-        <textarea class="info" name="" id="message" cols="30" rows="4" placeholder="Message"></textarea>
-       <Button :buttonWidth=404 :buttonText="buttonText" />
+          <textarea class="info"
+                    name=""
+                    id="textarea"
+                    cols="30"
+                    rows="4"
+                    v-model="message.text"
+                    :maxlength="message.maxlength"
+                    placeholder="Message">
+          </textarea>
+       <Button type="submit"
+               value="Send Form"
+               :buttonWidth=404
+               :buttonText="buttonText" />
       </form>
     </div>
     <div class="side-box">
@@ -57,6 +69,9 @@ export default {
       }
       return window.scrollY > 100
     },
+    submit: function() {
+      this.submitted = true;
+    },
   },
   data() {
     return {
@@ -65,7 +80,17 @@ export default {
       address: {
         lon: "",
         lat: "",
-      }
+      },
+      name: "",
+      email: {
+      value: "",
+      valid: true
+      },
+      message: {
+        text: ``,
+        maxlength: 255
+      },
+      submitted: false
     }
   }
 }
@@ -97,7 +122,7 @@ input {
   font-size: 14px;
 }
 
-#message {
+#textarea {
   margin-top: 8px;
   margin-bottom: 8px;
   margin-left: 13px;
