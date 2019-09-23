@@ -1,13 +1,28 @@
 <template>
   <div class="home">
-    <side-bar :handleLogo="handleLogo" :handleSocial="handleSocial" :brand="sideLogo" />
-    <HelloWorld msg="Har Studio."/>
+    <transition
+      appear
+      appear-active-class="first-enter-active"
+    >
+      <side-bar :handleLogo="handleLogo" :handleSocial="handleSocial" :brand="sideLogo" />
+    </transition>
+    <transition
+      appear
+      appear-active-class="first-enter-active"
+    >
+      <HelloWorld msg="Har Studio."/>
+    </transition>
     <!-- banner -->
+<!--     <transition
+      appear
+      appear-active-class="second-enter-active"
+    > -->
     <div class="section banner">
       <div class="container">
         <banner/>
       </div>
     </div>
+    <!-- </transition> -->
     <!-- Products -->
     <div class="section beige-bg">
       <div class="container">
@@ -136,7 +151,7 @@ export default {
     },
     productUpdate(cImg) {
       this.display.img = cImg
-    }
+    },
     handleSocial: function (evt, el) {
         console.log(window.scrollY)
       if (window.scrollY > 1600) {
@@ -182,6 +197,26 @@ export default {
 </script>
 
 <style>
+.first-enter-active {
+  animation: ok 2s;
+}
+
+.second-enter-active {
+  animation: ok 5s;
+}
+
+@keyframes ok {
+  0% {
+    opacity: 0;
+  }
+  37% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .photo {
   height: 30vh;
 }

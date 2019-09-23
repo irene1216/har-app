@@ -2,17 +2,28 @@
   <div class="banner">
    <div class="row">
     <div class="col-lg-6 col-sm-12">
-      <div class="banner-image-background">
-      </div>
-        <img class="photo" fluid alt="Responsive image" src="../assets/alex_right.png"/>
+    <transition
+      appear
+      appear-active-class="third-enter-active"
+    >
+      <div class="banner-image-background"></div>
+    </transition>
+        <transition
+      appear
+      appear-active-class="second-enter-active"
+    >
+      <img class="photo" fluid alt="Responsive image" src="../assets/alex_right.png"/>
+    </transition>
       </div>
     <div class="col-lg-6 col-sm-12">
       <div class="banner-text">
+
         <div class="small-text">
           <h2>
             Natural looking dense hair in just <b>30 seconds.</b>
           </h2>
         </div>
+
         <div class="big-text">
           <h1>Get Back Your Confidence with Har.</h1>
         <Button :buttonWidth=400 :buttonText="buttonText" />
@@ -47,17 +58,18 @@ export default{
 
 .photo {
   width: 570px;
-  height: 610px;
+  height: 580px;
   position: relative;
-  top: -70px;
+  top: -50px;
 }
 
 .banner-image-background{
   background:#F2F04F;
   position: absolute;
-  height: 540px;
-  width: 540px;
+  height: 560px;
+  width: 530px;
   margin-left: 1vw;
+  top: -30px;
 }
 
 .small-text {
@@ -79,6 +91,9 @@ export default{
   justify-content: center;
   display: flex;
   flex-direction: column;
+  animation: text-animation 2s linear forwards;
+  animation-delay: 1s;
+  opacity: 0;
 }
 
 .arrow {
@@ -89,4 +104,48 @@ export default{
   animation: jump 1s linear alternate infinite;
 }
 
+.second-enter-active {
+  animation: ok 3s;
+}
+
+@keyframes ok {
+  0% {
+    opacity: 0;
+  }
+  37% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.third-enter-active {
+  animation: notok 3s;
+}
+
+@keyframes notok {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.third-enter-active {
+  animation: ok 3s;
+}
+
+@keyframes text-animation {
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 </style>

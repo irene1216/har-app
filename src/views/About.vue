@@ -132,7 +132,6 @@ import Button from '@/components/Button.vue'
   padding: 20px;
   background: #F2F04F;
   width: 50vw;
-  /*transition: 3s all cubic-bezier(0.39, 0.575, 0.565, 1);*/
 }
 
 .fade-enter-active {
@@ -151,7 +150,6 @@ import Button from '@/components/Button.vue'
 }
 
 .image-enter-active {
-  /*animation-delay: 2s;*/
   animation: ok 5s;
 }
 
