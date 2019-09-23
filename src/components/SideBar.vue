@@ -51,9 +51,10 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
-  width: 10vh;
+  width: 8vw;
   padding-left: 0px;
   padding-right: 0px;
+  margin-top: 10px;
 }
 
 .nav-menu {
@@ -93,10 +94,9 @@ export default {
   font-size: 15px;
   white-space: nowrap;
   position: absolute;
-  margin: 0px;
+  /*padding-bottom: 10px;*/
   top: 80px;
   left: 30px;
-
 }
 
 .menu-list a {

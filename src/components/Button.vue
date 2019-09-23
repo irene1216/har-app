@@ -23,6 +23,7 @@ export default {
   justify-content: center;
   align-items: center;
   border:none;
+  margin-right: 0px;
 }
 
 .black h2{

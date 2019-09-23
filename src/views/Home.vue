@@ -1,9 +1,6 @@
 <template>
   <div class="home">
     <side-bar :handleLogo="handleLogo" :handleSocial="handleSocial" :brand="sideLogo" />
-
-    <!-- header -->
-
     <HelloWorld msg="Har Studio."/>
     <!-- banner -->
     <div class="section banner">
@@ -128,7 +125,7 @@
     </div>
     <!-- Contact -->
     <div class="section">
-      <ContactUs />
+      <ContactUs  />
     </div>
     <!-- footer -->
       <bottom-footer v-scroll="handleScroll" brand="Har Studio." />
@@ -210,6 +207,15 @@ export default {
       }
       return window.scrollY > 100
     },
+    // showThird: function (evt, el) {
+    //   if (window.scrollY > 1200) {
+    //     el.setAttribute(
+    //       'style',
+    //       'opacity: 0; transform: translate3d(0, 0px, 0)'
+    //     )
+    //   }
+    //   return window.scrollY > 100
+    // },
   }
 }
 

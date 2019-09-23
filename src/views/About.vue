@@ -22,6 +22,8 @@
           <p>
             {{content}}
           </p>
+          <Button :buttonWidth=400 :buttonText="buttonText" />
+
         </div>
     </transition>
     </div>
@@ -33,6 +35,7 @@
 import SmallLogo from "@/components/SmallLogo.vue";
 import SideBar from '@/components/SideBar.vue';
 import BottomFooter from '@/components/BottomFooter.vue'
+import Button from '@/components/Button.vue'
 
   export default{
     name: "About",
@@ -103,6 +106,7 @@ import BottomFooter from '@/components/BottomFooter.vue'
     data() {
       return {
         smallLogo: "Har Studio.",
+        buttonText: "Get in touch",
         sideLogo: "Har Studio.",
         mounted: false,
         slogen: "We're Here to Help",
@@ -113,11 +117,12 @@ import BottomFooter from '@/components/BottomFooter.vue'
       SmallLogo,
       SideBar,
       BottomFooter,
+      Button
     }
   }
 </script>
 
-<style>
+<style scoped>
 .slogen-content {
   text-align: left;
   height: 30vh;
@@ -160,6 +165,11 @@ import BottomFooter from '@/components/BottomFooter.vue'
   100% {
     opacity: 1;
   }
+}
+
+.black {
+  margin-left: 15.5vw;
+  margin-top: 8vh;
 }
 
 .slogen-content > p {
