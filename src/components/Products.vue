@@ -1,47 +1,19 @@
 <template>
-  <div class="products d-flex align-items-center">
-    <!-- tabs -->
-    <!-- div class="col-2"> -->
-      <header class="product-header">
-        <ul class="tab-heads">
-          <li class="tab-head pl-3" v-for="tab in tabs" :key="tab"v-bind:class="{'tab-head--active' : activeTab === tab }"v-on:click="switchTab(tab)">
-            <slot :name="tabHeadSlotName(tab)">{{tab}}</slot>
-          </li>
-        </ul>
-      </header>
-  <!--   </div> -->
-    <!-- content  -->
- <main class="product-body">
-        <div class="tab-panel d-flex"><slot :name="tabPanelSlotName"></slot></div>
-      </main>
+  <div class="products">
+    <div class="products" v-for="product in products">
+      <div @click="$emit('show:product', product.id)" v-bind:class="[activeId === product.id ? 'tab-active' : 'tab']">
+        <h2>{{product.name}}</h2>
+      </div>
     </div>
+  </div>
 </template>
 
-<script>
+<script scoped>
   export default {
     name: "Products",
     props: {
-      initialTab: String,
-      tabs: Array
-    },
-    data(){
-      return{
-        activeTab:this.initialTab
-      };
-    },
-    computed: {
-      tabPanelSlotName(){
-        return`tab-panel-${this.activeTab}`;
-      }
-    },
-    methods: {
-      tabHeadSlotName(tabName) {
-        return `tab-head-${tabName}`;
-      },
-
-      switchTab(tabName) {
-        this.activeTab = tabName;
-      },
+      products: Array,
+      activeId: Number,
     },
   };
 </script>
@@ -51,9 +23,23 @@
 .products {
   border-radius: 6px;
   height: 100%;
+  flex-direction: column;
+  padding-bottom: 5px;
+  z-index: 1;
 }
 
-.product-header{
+.tab{
+  color:grey;
+  padding-left: 10px;
+}
+
+.tab-active{
+  color:black;
+  border-left: 3px solid black;
+  padding-left: 7px;
+}
+
+/*.product-header{
   position:absolute;
   z-index: 1;
 }
@@ -72,6 +58,6 @@
 .tab-head--active{
   color:black;
   border-left: 3px solid black;
-}
+  }*/
 
 </style>

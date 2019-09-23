@@ -18,18 +18,18 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 @font-face {
   font-family: 'NATS';
   src: url('~/fonts/NATS-Regular.ttf') format('ttf');
   font-style: normal;
 }
 
+
 h1{
   font-size: 4em;
-  text-align: right;
+  text-align: left;
   width: 330px;
-  /*font-family: "NATS";*/
-  /*white-space: nowrap;*/
 }
 h3 {
   margin: 40px 0 0;
