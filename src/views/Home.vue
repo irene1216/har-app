@@ -1,8 +1,6 @@
 <template>
   <div class="home">
-    <side-bar />
-    <!-- header -->
-
+    <side-bar :handleLogo="handleLogo" :handleSocial="handleSocial" :brand="sideLogo" />
     <HelloWorld msg="Har Studio."/>
     <!-- banner -->
     <div class="section banner">
@@ -62,6 +60,14 @@
         </div>
       </div>
     </div>
+
+    <!-- Contact -->
+    <div class="section">
+      <ContactUs  />
+    </div>
+    <!-- footer -->
+      <bottom-footer v-scroll="handleScroll" brand="Har Studio." />
+
   </div>
 </div>
 </div>
@@ -79,6 +85,8 @@ import HelloWorld from "@/components/HelloWorld.vue";
 import Banner from "@/components/Banner.vue";
 import Products from "@/components/Products.vue";
 import axios from 'axios'
+import ContactUs from "@/components/ContactUs.vue";
+import BottomFooter from '@/components/BottomFooter.vue';
 
 
 export default {
@@ -88,6 +96,8 @@ export default {
     Banner,
     Products,
     SideBar,
+    ContactUs,
+    BottomFooter,
   },
   data () {
     return {
@@ -124,13 +134,63 @@ export default {
     productUpdate(cImg) {
       this.display.img = cImg
     }
+    handleSocial: function (evt, el) {
+        console.log(window.scrollY)
+      if (window.scrollY > 1600) {
+        el.setAttribute(
+          'style',
+          'opacity: 1; transform: translate3d(0, -10vh, 0);'
+        )
+      }
+      else if (window.scrollY < 1600) {
+        el.setAttribute(
+          'style',
+          'opacity: 1; transform: translate3d(0, 0, 0); transition: 1s all cubic-bezier(0.39, 0.575, 0.565, 1)'
+        )
+      }
+    },
+    handleLogo: function (evt, el) {
+      console.log(window.scrollY)
+      if (window.scrollY > 100) {
+        el.setAttribute(
+          'style',
+          'opacity: 1; transform: translate3d(0, 0px, 0); transform: rotate(-90deg); transition: 2s all cubic-bezier(0.39, 0.575, 0.565, 1)'
+        )
+      }
+      else if (window.scrollY < 1350) {
+        el.setAttribute(
+          'style',
+          'opacity: 0; transform: translate3d(0, 0px, 0); transform: rotate(-90deg); transition: 2s all cubic-bezier(0.39, 0.575, 0.565, 1)'
+        )
+      }
+    },
+    handleScroll: function (evt, el) {
+      if (window.scrollY > 1500) {
+        el.setAttribute(
+          'style',
+          'opacity: 1; transform: translate3d(0, 0px, 0)'
+        )
+      }
+      return window.scrollY > 100
+    },
+    // showThird: function (evt, el) {
+    //   if (window.scrollY > 1200) {
+    //     el.setAttribute(
+    //       'style',
+    //       'opacity: 0; transform: translate3d(0, 0px, 0)'
+    //     )
+    //   }
+    //   return window.scrollY > 100
+    // },
   }
 }
 
 </script>
 
 <style>
-
+.photo {
+  height: 30vh;
+}
 /*General*/
 .home {
   height:100vh;

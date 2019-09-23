@@ -19,6 +19,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
+@font-face {
+  font-family: 'NATS';
+  src: url('~/fonts/NATS-Regular.ttf') format('ttf');
+  font-style: normal;
+}
+
+
 h1{
   font-size: 4em;
   text-align: left;
@@ -42,6 +49,7 @@ a {
 .responsive-h1 {
   display: flex;
   justify-content: center;
+  padding-top: 15px;
   padding-right: 20px;
 }
 

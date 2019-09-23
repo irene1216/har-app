@@ -1,8 +1,6 @@
 <template>
   <div class="hello">
-    <div class="responsive-h1">
       <h1>{{ msg }}</h1>
-    </div>
 
 </div>
 </template>
@@ -20,19 +18,14 @@ export default {
 <style scoped>
 h1{
   font-size: 2em;
-  text-align: right;
-  width: 165px;
-  padding-top: 24px;
-  /*white-space: nowrap;*/
-}
-
-.responsive-h1 {
-  display: flex;
-  justify-content: center;
-  padding-right: 20px;
+  text-align: center;
+  padding-top: 30px;
 }
 
 .hello {
-  padding-left: 10vh;
+
+  position: fixed;
+  width: 100vw;
+  /*padding-left: 10vh;*/
 }
 </style>

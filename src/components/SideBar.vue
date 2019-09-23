@@ -9,8 +9,8 @@
           <router-link v-bind:class=" { onShow3: !isHidden }" class="menu-item" to="/faq">FAQ</router-link>
         </div>
       </div>
-      <div class="nav-logo" >{{ brand }}</div>
-      <div class="nav-menu" v-scroll="handleScroll"  >
+        <div v-scroll="handleLogo" class="nav-logo">{{ brand }}</div>
+      <div class="nav-menu" v-scroll="handleSocial"  >
         <a href="https://www.youtube.com/channel/UC0JQ6FRCunSej59MF1S3wgQ" target="_blank"><i class="fab fa-youtube"></i></a>
         <a href="http://instagram.com/harstudio.dk" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://www.facebook.com/harstudio.dk" target="_blank"><i class="fab fa-facebook-f"></i></a>
@@ -26,19 +26,8 @@ export default {
   name: "SideBar",
     methods: {
       handlerOne () {
-        console.log("hidingggg")
         this.isHidden = !this.isHidden
       },
-      handleScroll: function (evt, el) {
-        if (window.scrollY > 50) {
-          console.log(window)
-          el.setAttribute(
-            'style',
-            'opacity: 1; transform: translate3d(0, -10vh, 0)'
-          )
-        }
-        return window.scrollY > 100
-      }
     },
   data() {
     return {
@@ -46,13 +35,15 @@ export default {
     };
   },
   props: {
-    brand: String
+    brand: String,
+    handleLogo: Function,
+    handleSocial: Function,
   }
 }
 </script>
 <style scoped>
-
 .nav {
+  z-index: 1;
   position: fixed;
   float: left;
   padding: 30px;
@@ -60,9 +51,10 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
-  width: 10vh;
+  width: 8vw;
   padding-left: 0px;
   padding-right: 0px;
+  margin-top: 10px;
 }
 
 .nav-menu {
@@ -93,6 +85,7 @@ export default {
 }
 
 .nav-logo {
+  opacity: 0;
   transform: rotate(-90deg);
   white-space: nowrap;
 }
@@ -101,10 +94,9 @@ export default {
   font-size: 15px;
   white-space: nowrap;
   position: absolute;
-  margin: 0px;
+  /*padding-bottom: 10px;*/
   top: 80px;
   left: 30px;
-
 }
 
 .menu-list a {
