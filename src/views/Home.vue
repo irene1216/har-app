@@ -13,40 +13,62 @@
     <!-- Products -->
     <div class="section beige-bg">
       <div class="container">
-        <div class="product-section d-flex align-items-center">
-          <div class="tabs">
+        <div class="product-section">
+          <div class="product-display d-flex align-items-center">
+           <div class="tabs">
             <products
             :products="products"
             :activeId="activeId"
             @show:product="showProduct" class="product-tabs"/>
           </div>
-          <div class="product-display d-flex">
-           <img :src="display.img" alt="" class="col-6">
-           <div class="product-display-text col-6">
-             <h1>{{display.name}}</h1>
-             <p>{{display.size}}</p>
-             <hr>
-             <p>{{display.description}}</p>
-             <div v-if="display.instructions == [] ">
+          <img :src="display.img" alt="" class="col-6 d-flex align-items-center">
+          <div class="product-display-text col-6">
+           <h1>{{display.name}}</h1>
+           <p>{{display.size}}</p>
+           <hr>
+           <p>{{display.description}}</p>
+           <div class="my-3">
+             <div v-if="display.instructions == null ">
              </div>
              <div v-else>
+              <div class="instructions yellow-bg">
                <h2>Instructions:</h2>
-               <ol v-for="(instruction, index) in display.instructions">
-                <li class="instructions"><div class="index">{{index+1}}</div>{{instruction}}</li>
-              </ol>
+               <div v-for="(instruction, index) in display.instructions">
+                <li class="instruction-list"><div class="index">{{index+1}}</div><p>{{instruction}}</p></li>
+              </div>
+              </div>
             </div>
-            <ul v-for="ingredient in display.ingredients">
-              <li>{{ingredient}}</li>
-            </ul>
+          </div>
+          <div class="my-3">
+            <h2>Ingredients:</h2>
+            <div v-for="ingredient in display.ingredients">
+              <p class="m-0">{{ingredient}}</p>
+            </div>
+          </div>
+          <div v-if="display.colors == null">
+          </div>
+          <div v-else>
+            <div class="my-3">
+              <h2>Colors:</h2>
+              <div class="d-flex">
+                <div v-for="color in display.colors"
+                :key="color.cId"
+                class="color-box"
+                :style="{ backgroundColor: color.cColor}"
+                @mouseover="productUpdate(color.cImg)">
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- Contact -->
-  <div class="section">
-  </div>
-  <!-- footer -->
+</div>
+</div>
+<!-- Contact -->
+<div class="section">
+</div>
+<!-- footer -->
 </div>
 </template>
 
@@ -99,6 +121,9 @@ export default {
         })
       }
     },
+    productUpdate(cImg) {
+      this.display.img = cImg
+    }
   }
 }
 
@@ -119,6 +144,16 @@ export default {
 .beige-bg {
   background:#EDEAE5;
 }
+
+.yellow-bg{
+    background: #F2F04F;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: -20px;
+    padding-left: 20px;
+    width: 675px;
+}
+
 
 /*buttons*/
 .btn-black{
@@ -169,8 +204,9 @@ hr{
 }
 
 .product-display img{
-  height:500px;
-  width:500px;
+  object-fit: cover;
+  height:700px;
+  padding:0;
 }
 
 .product-display ol {
@@ -185,31 +221,37 @@ hr{
 
 .product-display-text{
   margin-left: 3em;
+  height:730px;
   border-top: 3px solid black;
   border-bottom: 3px solid black;
 }
 
-.instructions {
-  display:flex;
-  align-items: center;
-
+.instructions{
+  z-index: 1;
 }
 
+.instruction-list {
+  display:flex;
+  align-items: center;
+}
 
 .index {
-  content: counter(step-counter);
   background-color: transparent;
   color: black;
   font-weight: bold;
   border: 3px solid black;
   border-radius: 50%;
   margin-right: 2%;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 1.5%;
   padding: 4px 12px;
-
 }
 
+.color-box {
+  width: 40px;
+  height: 40px;
+  margin-top: 5px;
+  margin-right: 5px;
+}
 
 /*animations*/
 

@@ -17,42 +17,52 @@
   "colors": [{
     "cId": 1,
     "cName": "black",
+    "cColor": "#000000",
     "cImg": "/img/Black.44b5020d.jpg"
   }, {
     "cId": 2,
     "cName": "white",
+    "cColor": "#ffffff",
     "cImg": "/img/White.1c558981.jpg"
   }, {
     "cId": 3,
     "cName": "grey",
+    "cColor": "#808080",
     "cImg": "/img/Grey.593f7164.jpg"
   }, {
     "cId": 4,
     "cName": "dark brown",
+    "cColor": "#845422",
     "cImg": "/img/DBrown.60a33b02.jpg"
   }, {
     "cId": 5,
     "cName": "medium brown",
+    "cColor": "#a47c48",
     "cImg": "/img/MedBrown.bc4951e2.jpg"
   }, {
     "cId": 6,
     "cName": "light brown",
+    "cColor": "#d7c797",
     "cImg": "/img/LiBrown.42869159.jpg"
   }, {
     "cId": 7,
     "cName": "blonde",
+    "cColor": "#d2b776",
     "cImg": "/img/Blonde.d3c6094c.jpg"
   }, {
     "cId": 8,
-    "cName": "light blonde",
-    "cImg": "/img/LiBlonde.73c97fac.jpg"
+    "cName": "medium blonde",
+      "cColor": "#d7c797",
+    "cImg": "/img/MedBlonde.3e76de01.jpg"
   }, {
     "cId": 9,
-    "cName": "medium blonde",
-    "cImg": "/img/MedBlonde.3e76de01.jpg"
+    "cName": "light blonde",
+     "cColor": "#f2e2cd",
+    "cImg": "/img/LiBlonde.73c97fac.jpg"
   }, {
     "cId": 10,
     "cName": "auburn",
+    "cColor": "#75250a",
     "cImg": "/img/Auburn.c85a62f1.jpg"
   }]
 }, {
