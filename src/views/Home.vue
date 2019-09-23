@@ -148,7 +148,7 @@ export default {
     },
     productUpdate(cImg) {
       this.display.img = cImg
-    }
+    },
     handleSocial: function (evt, el) {
         console.log(window.scrollY)
       if (window.scrollY > 1600) {
