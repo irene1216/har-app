@@ -2,55 +2,55 @@
   <div class="banner">
    <div class="row">
     <div class="col-lg-6 col-sm-12">
-    <transition
+      <transition
       appear
       appear-active-class="third-enter-active"
-    >
+      >
       <div class="banner-image-background"></div>
     </transition>
-        <transition
-      appear
-      appear-active-class="second-enter-active"
+    <transition
+    appear
+    appear-active-class="second-enter-active"
     >
-      <img class="photo" fluid alt="Responsive image" src="../assets/alex_right.png"/>
-    </transition>
-      </div>
-    <div class="col-lg-6 col-sm-12">
-      <div class="banner-text">
+    <div class="photo">
+      <img class="sad" fluid alt="Responsive image" src="../assets/alex_left.png"/>
+      <img class="happy" fluid alt="Responsive image" src="../assets/alex_right.png"/>
+    </div>
+  </transition>
+</div>
+<div class="col-lg-6 col-sm-12">
+  <div class="banner-text">
 
-        <div class="small-text">
-          <h2>
-            Natural looking dense hair in just <b>30 seconds.</b>
-          </h2>
-        </div>
+    <div class="small-text">
+      <h2>
+        Natural looking dense hair in just <b>30 seconds.</b>
+      </h2>
+    </div>
 
-        <div class="big-text">
-          <h1>Get Back Your Confidence with Har.</h1>
-        <Button :buttonWidth=400 :buttonText="buttonText" />
-        </div>
-      </div>
+    <div class="big-text">
+      <h1>Get Back Your Confidence with Har.</h1>
+      <Button :buttonWidth=400 :buttonText="buttonText" />
     </div>
   </div>
-
-<!--       <img class="arrow" src="@/assets/arrow-down.svg">
- -->
+</div>
+</div>
 </div>
 
 </template>
 
 <script>
-import Button from '@/components/Button.vue';
-export default{
-  name: "Banner",
-  data(){
-    return {
-      buttonText: "Shop Har"
+  import Button from '@/components/Button.vue';
+  export default{
+    name: "Banner",
+    data(){
+      return {
+        buttonText: "Shop Har"
+      }
+    },
+    components: {
+      Button,
     }
-  },
-  components: {
-    Button,
   }
-}
 </script>
 
 
@@ -61,6 +61,70 @@ export default{
   height: 580px;
   position: relative;
   top: -50px;
+}
+
+.happy {
+  width: 570px;
+  height: 580px;
+  position:absolute;
+  left:10px;
+}
+
+.sad{
+  width: 570px;
+  height: 580px;
+  position:absolute;
+  left:10px;
+}
+
+.photo img{
+  position:absolute;
+}
+
+.photo img.happy {
+  animation-name: imgFadeInOut;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 10s;
+  animation-direction: alternate;
+}
+
+@keyframes imgFadeInOut {
+  0% {
+    opacity:0;
+  }
+  45% {
+    opacity:0;
+  }
+  55% {
+    opacity:1;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+.photo img.sad {
+  animation-name: img2FadeInOut;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 10s;
+  animation-direction: alternate;
+}
+
+@keyframes img2FadeInOut {
+  0% {
+    opacity:1;
+  }
+  45% {
+    opacity:1;
+  }
+  55% {
+    opacity:0;
+  }
+  100% {
+    opacity:0;
+  }
 }
 
 .banner-image-background{
