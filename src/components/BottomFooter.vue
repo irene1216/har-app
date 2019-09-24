@@ -31,7 +31,7 @@ export default {
 
 p {
   color: white;
-  font-family: Niramit;
+  font-family: 'DM Sans';
   font-size: 1.6rem;
 }
 
