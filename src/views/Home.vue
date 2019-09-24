@@ -103,7 +103,6 @@ import axios from 'axios'
 import ContactUs from "@/components/ContactUs.vue";
 import BottomFooter from '@/components/BottomFooter.vue';
 
-
 export default {
   name: "home",
   components: {
@@ -119,6 +118,7 @@ export default {
       products: [],
       display: {},
       activeId: null,
+      sideLogo: "Har Studio."
     };
   },
   mounted(){
@@ -188,15 +188,6 @@ export default {
       }
       return window.scrollY > 100
     },
-    // showThird: function (evt, el) {
-    //   if (window.scrollY > 1200) {
-    //     el.setAttribute(
-    //       'style',
-    //       'opacity: 0; transform: translate3d(0, 0px, 0)'
-    //     )
-    //   }
-    //   return window.scrollY > 100
-    // },
   }
 }
 
