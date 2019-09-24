@@ -1,46 +1,42 @@
 <template>
   <div class="home">
     <transition
-      appear
-      appear-active-class="first-enter-active"
+    appear
+    appear-active-class="first-enter-active"
     >
-      <side-bar :handleLogo="handleLogo" :handleSocial="handleSocial" :brand="sideLogo" />
-    </transition>
-    <transition
-      appear
-      appear-active-class="first-enter-active"
-    >
-      <HelloWorld msg="Har Studio."/>
-    </transition>
-    <!-- banner -->
-<!--     <transition
-      appear
-      appear-active-class="second-enter-active"
-    > -->
-    <div class="section banner">
-      <div class="container">
-        <banner/>
+    <side-bar :handleLogo="handleLogo" :handleSocial="handleSocial" :brand="sideLogo" />
+  </transition>
+  <transition
+  appear
+  appear-active-class="first-enter-active"
+  >
+  <HelloWorld msg="Har Studio."/>
+</transition>
+<!-- banner -->
+<div class="section banner">
+  <div class="container">
+    <banner/>
+  </div>
+</div>
+<!-- Products -->
+<div class="section beige-bg">
+  <div class="container">
+    <div class="product-section">
+      <div class="product-display d-flex align-items-center">
+       <div class="tabs">
+        <products
+        :products="products"
+        :activeId="activeId"
+        @show:product="showProduct" class="product-tabs"/>
       </div>
-    </div>
-    <!-- </transition> -->
-    <!-- Products -->
-    <div class="section beige-bg">
-      <div class="container">
-        <div class="product-section">
-          <div class="product-display d-flex align-items-center">
-           <div class="tabs">
-            <products
-            :products="products"
-            :activeId="activeId"
-            @show:product="showProduct" class="product-tabs"/>
-          </div>
-          <img :src="display.img" alt="" class="col-6 d-flex align-items-center">
-          <div class="product-display-text col-6">
-           <h1>{{display.name}}</h1>
-           <p>{{display.size}}</p>
-           <hr>
-           <p>{{display.description}}</p>
-           <div class="my-3">
+        <img :src="display.img" alt="" class="col-6 d-flex align-items-center">
+        <div class="product-display-text col-5 d-flex flex-column justify-content-between p-0">
+          <div>
+            <h1 style="text-transform: uppercase;">{{display.name}}</h1>
+            <p>{{display.size}}</p>
+            <hr>
+            <p>{{display.description}}</p>
+            <div class="my-3">
              <div v-if="display.instructions == null ">
              </div>
              <div v-else>
@@ -48,7 +44,6 @@
                <h2>Instructions:</h2>
                <div v-for="(instruction, index) in display.instructions">
                 <li class="instruction-list"><div class="index">{{index+1}}</div><p>{{instruction}}</p></li>
-              </div>
               </div>
             </div>
           </div>
@@ -72,25 +67,23 @@
               </div>
             </div>
           </div>
-          <Button :buttonWidth=400 :buttonText="buttonText" />
         </div>
       </div>
     </div>
-
-    <!-- Contact -->
-    <div class="section">
-      <ContactUs  />
-    </div>
-    <!-- footer -->
-      <bottom-footer v-scroll="handleScroll" brand="Har Studio." />
-
+    <Button :buttonWidth=400 :buttonText="buttonText" class="mb-3" />
   </div>
+</div>
+</div>
 </div>
 </div>
 <!-- Contact -->
 <div class="section">
+  <ContactUs  />
 </div>
 <!-- footer -->
+<div>
+  <bottom-footer v-scroll="handleScroll" brand="Har Studio." />
+</div>
 </div>
 </template>
 
@@ -122,6 +115,7 @@ export default {
       products: [],
       display: {},
       activeId: null,
+      buttonText: "Shop Har",
     };
   },
   mounted(){
@@ -153,18 +147,18 @@ export default {
       this.display.img = cImg
     },
     handleSocial: function (evt, el) {
-        console.log(window.scrollY)
+      console.log(window.scrollY)
       if (window.scrollY > 1600) {
         el.setAttribute(
           'style',
           'opacity: 1; transform: translate3d(0, -10vh, 0);'
-        )
+          )
       }
       else if (window.scrollY < 1600) {
         el.setAttribute(
           'style',
           'opacity: 1; transform: translate3d(0, 0, 0); transition: 1s all cubic-bezier(0.39, 0.575, 0.565, 1)'
-        )
+          )
       }
     },
     handleLogo: function (evt, el) {
@@ -173,13 +167,13 @@ export default {
         el.setAttribute(
           'style',
           'opacity: 1; transform: translate3d(0, 0px, 0); transform: rotate(-90deg); transition: 2s all cubic-bezier(0.39, 0.575, 0.565, 1)'
-        )
+          )
       }
       else if (window.scrollY < 1350) {
         el.setAttribute(
           'style',
           'opacity: 0; transform: translate3d(0, 0px, 0); transform: rotate(-90deg); transition: 2s all cubic-bezier(0.39, 0.575, 0.565, 1)'
-        )
+          )
       }
     },
     handleScroll: function (evt, el) {
@@ -187,7 +181,7 @@ export default {
         el.setAttribute(
           'style',
           'opacity: 1; transform: translate3d(0, 0px, 0)'
-        )
+          )
       }
       return window.scrollY > 100
     },
@@ -197,6 +191,9 @@ export default {
 </script>
 
 <style>
+
+
+
 .first-enter-active {
   animation: ok 2s;
 }
@@ -220,6 +217,7 @@ export default {
 .photo {
   height: 30vh;
 }
+
 /*General*/
 .home {
   height:100vh;
@@ -235,37 +233,16 @@ export default {
 }
 
 .yellow-bg{
-    background: #F2F04F;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-left: -20px;
-    padding-left: 20px;
-    width: 675px;
-}
-
-
-/*buttons*/
-.btn-black{
-  background: black;
-  color:white;
-  height:45px;
-  width:75%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10%;
-  border:none;
-}
-
-.btn-black h2{
-  margin:0;
+  background: #F2F04F;
+  padding-top: 10px;
+  padding-bottom: 10px;
+      margin-left: -50px;
+    padding-left: 50px;
+  width: 690px;
 }
 
 /*product section*/
 
-hr{
-  border: 0.5px solid black;
-}
 
 .tab-panel img{
   height: 100%;
@@ -309,8 +286,8 @@ hr{
 }
 
 .product-display-text{
-  margin-left: 3em;
-  height:730px;
+  margin-left: 7em;
+  height:710px;
   border-top: 3px solid black;
   border-bottom: 3px solid black;
 }
@@ -328,18 +305,20 @@ hr{
   background-color: transparent;
   color: black;
   font-weight: bold;
+  height: 35px;
+  width: 35px;
+  text-align: center;
   border: 3px solid black;
   border-radius: 50%;
   margin-right: 2%;
   margin-bottom: 1.5%;
-  padding: 4px 12px;
 }
 
 .color-box {
   width: 40px;
   height: 40px;
   margin-top: 5px;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
 /*animations*/

@@ -39,25 +39,4 @@
   padding-left: 7px;
 }
 
-/*.product-header{
-  position:absolute;
-  z-index: 1;
-}
-
-.product-body{
-  position:relative;
-}
-
-.tab-heads{
-  height:100%;
-  color:grey;
-  text-align: left;
-  padding-left: 3px;
-}
-
-.tab-head--active{
-  color:black;
-  border-left: 3px solid black;
-  }*/
-
 </style>

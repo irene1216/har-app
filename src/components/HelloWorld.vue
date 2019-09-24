@@ -3,7 +3,6 @@
     <div class="responsive-h1">
       <h1>{{ msg }}</h1>
     </div>
-
 </div>
 </template>
 
@@ -27,7 +26,7 @@ export default {
 
 
 h1{
-  font-size: 4em;
+  font-size: 3.5em;
   text-align: left;
   width: 330px;
 }
