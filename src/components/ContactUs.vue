@@ -9,7 +9,7 @@
       <div class="map">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1110.9221949626235!2d10.211799447951439!3d56.15979506671462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464c3f97a8a42bc1%3A0x7079757e6a27b86a!2sMejlgade%2048C%2C%201%20TH%2C%208000%20Aarhus%2C%20Denmark!5e0!3m2!1sen!2s!4v1568886487577!5m2!1sen!2s" width="402" height="200" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
       </div>
-      <form class="mailing-form" ">
+      <form class="mailing-form">
         <div class="group">
           <input type="text"
                   placeholder="Name"
@@ -34,11 +34,10 @@
                     cols="30"
                     rows="4"
                     v-model="templateParams.message"
-                    :maxlength="message.maxlength"
+                    :maxlength="maxlength"
                     placeholder="Message">
           </textarea>
-       <button type="submit"
-                v-on:click="sendMyMessage"
+       <Button type="submit"
                :buttonWidth=404
                :buttonText="buttonText" />
       </form>
@@ -71,17 +70,19 @@ export default {
     submit: function() {
       this.submitted = true;
     },
-    sendMail: function('YOUR_TEMPLATE_ID', templateParams) {
-      emailjs.send('default_service', 'template_IeZxpaWU', this.templateParams)
-        .then(function(response) {
-           console.log('SUCCESS!', response.status, response.text);
-        }, function(error) {
-           console.log('FAILED...', error);
-        })
-      }
+    // sendMail: function('YOUR_TEMPLATE_ID', templateParams) {
+    //   emailjs.send('default_service', 'template_IeZxpaWU', this.templateParams)
+    //     .then(function(response) {
+    //        console.log('SUCCESS!', response.status, response.text);
+    //     }, function(error) {
+    //        console.log('FAILED...', error);
+    //     })
+    //   }
+    // },
   },
   data() {
     return {
+      maxlength: 255,
       buttonText: "Get in Touch",
       harEmail: "contact@harstudio.dk",
       address: {

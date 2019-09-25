@@ -5,7 +5,6 @@
       <router-link to="/about">About Us</router-link>
       <router-link to="/faq">FAQ</router-link>
     </div>
-
 </div>
 </template>
 <script>

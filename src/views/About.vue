@@ -22,8 +22,8 @@
           <p>
             {{content}}
           </p>
-          <Button :buttonWidth=400 :buttonText="buttonText" />
 
+        <Button :buttonWidth=400 :buttonText="buttonText" />
         </div>
     </transition>
     </div>
@@ -125,7 +125,7 @@ import Button from '@/components/Button.vue'
 <style scoped>
 .slogen-content {
   text-align: left;
-  height: 30vh;
+  height: 24vh;
   width: 50vw;
   transition: width 2s;
   margin-bottom: 10vh;
