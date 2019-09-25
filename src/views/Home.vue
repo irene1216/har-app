@@ -36,6 +36,7 @@
       <bottom-footer v-scroll="handleScroll" brand="Har Studio." />
     </div>
   </div>
+
 </template>
 <script>
 // @ is an alias to /src
@@ -47,6 +48,7 @@ import axios from 'axios'
 import ContactUs from "@/components/ContactUs.vue";
 import BottomFooter from '@/components/BottomFooter.vue';
 import Button from '@/components/Button.vue';
+
 
 export default {
   name: "home",
@@ -97,17 +99,19 @@ export default {
       this.display.img = cImg
     },
     handleSocial: function(evt, el) {
+
       console.log(window.scrollY)
       if (window.scrollY > 1600) {
         el.setAttribute(
           'style',
           'opacity: 1; transform: translate3d(0, -10vh, 0);'
-        )
-      } else if (window.scrollY < 1600) {
+          )
+      }
+      else if (window.scrollY < 1600) {
         el.setAttribute(
           'style',
           'opacity: 1; transform: translate3d(0, 0, 0); transition: 1s all cubic-bezier(0.39, 0.575, 0.565, 1)'
-        )
+          )
       }
     },
     handleLogo: function(evt, el) {
@@ -116,12 +120,13 @@ export default {
         el.setAttribute(
           'style',
           'opacity: 1; transform: translate3d(0, 0px, 0); transform: rotate(-90deg); transition: 2s all cubic-bezier(0.39, 0.575, 0.565, 1)'
-        )
-      } else if (window.scrollY < 1350) {
+          )
+      }
+      else if (window.scrollY < 1350) {
         el.setAttribute(
           'style',
           'opacity: 0; transform: translate3d(0, 0px, 0); transform: rotate(-90deg); transition: 2s all cubic-bezier(0.39, 0.575, 0.565, 1)'
-        )
+          )
       }
     },
     handleScroll: function(evt, el) {
@@ -129,7 +134,7 @@ export default {
         el.setAttribute(
           'style',
           'opacity: 1; transform: translate3d(0, 0px, 0)'
-        )
+          )
       }
       return window.scrollY > 100
     },
@@ -137,6 +142,9 @@ export default {
 }
 </script>
 <style>
+
+
+
 .first-enter-active {
   animation: ok 2s;
 }

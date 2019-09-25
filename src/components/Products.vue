@@ -184,4 +184,5 @@ export default {
   border-left: 3px solid black;
   padding-left: 7px;
 }
+
 </style>
