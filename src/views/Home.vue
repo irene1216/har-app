@@ -1,7 +1,10 @@
 <template>
   <div class="home">
     <transition appear appear-active-class="first-enter-active">
-      <side-bar :handleLogo="handleLogo" :handleSocial="handleSocial" :brand="sideLogo" />
+      <side-bar :handleSocial="handleSocial"
+                :handleLogo="handleLogo"
+                :brand="sideLogo"
+      />
     </transition>
     <transition appear appear-active-class="first-enter-active">
       <HelloWorld msg="Har Studio." />
@@ -33,7 +36,7 @@
     </div>
     <!-- footer -->
     <div>
-      <bottom-footer v-scroll="handleScroll" brand="Har Studio." />
+      <bottom-footer v-scroll="handleFooter" brand="Har Studio." />
     </div>
   </div>
 
@@ -82,7 +85,6 @@ export default {
       })
     },
     showProduct(id) {
-      console.log("product", id)
       if (this.display.id === id) {
         this.display === {}
         this.activeId === null
@@ -99,8 +101,6 @@ export default {
       this.display.img = cImg
     },
     handleSocial: function(evt, el) {
-
-      console.log(window.scrollY)
       if (window.scrollY > 1600) {
         el.setAttribute(
           'style',
@@ -129,7 +129,7 @@ export default {
           )
       }
     },
-    handleScroll: function(evt, el) {
+    handleFooter: function(evt, el) {
       if (window.scrollY > 1500) {
         el.setAttribute(
           'style',

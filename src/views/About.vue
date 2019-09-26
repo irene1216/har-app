@@ -1,7 +1,10 @@
 <template>
   <div class="about">
     <div class="content">
-    <side-bar :handleSocial="handleSocial" :handleLogo="handleLogo" :brand="sideLogo" />
+    <side-bar :handleSocial="handleSocial"
+              :handleLogo="handleLogo"
+              :brand="sideLogo"
+    />
       <SmallLogo v-scroll="handleTopLogo" :msg="smallLogo" />
         <transition
           appear
@@ -41,7 +44,6 @@ import Button from '@/components/Button.vue'
     name: "About",
     mounted(){
       this.mounted = true
-      console.log("mounteddddddddddddd")
     },
     methods: {
       handleLogo: function (evt, el) {
@@ -211,7 +213,7 @@ import Button from '@/components/Button.vue'
 }
 
 .slogen > h2{
-  font-family: Niramit;
+  font-family: DM Sans;
   font-size: 4rem;
   text-align: left;
 }

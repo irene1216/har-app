@@ -23,6 +23,7 @@ Vue.directive('scroll', {
         window.removeEventListener('scroll', f)
       }
     }
-    window.addEventListener('scroll', f)
+    window.addEventListener('scroll', f),
+    { passive: true }
   }
 })

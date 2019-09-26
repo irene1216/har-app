@@ -22,6 +22,17 @@
   <div class="banner-text">
 
     <div class="small-text">
+<!--             <img class="happy" fluid alt="Responsive image" src="../assets/images/Black.jpg"/>
+            <img class="happy" fluid alt="Responsive image" src="../assets/images/White.jpg"/>
+            <img class="happy" fluid alt="Responsive image" src="../assets/images/Grey.jpg"/>
+            <img class="happy" fluid alt="Responsive image" src="../assets/images/DBrown.jpg"/>
+            <img class="happy" fluid alt="Responsive image" src="../assets/images/MedBrown.jpg"/>
+            <img class="happy" fluid alt="Responsive image" src="../assets/images/LiBrown.jpg"/>
+            <img class="happy" fluid alt="Responsive image" src="../assets/images/Blonde.jpg"/>
+            <img class="happy" fluid alt="Responsive image" src="../assets/images/MedBlonde.jpg"/>
+            <img class="happy" fluid alt="Responsive image" src="../assets/images/LiBlonde.jpg"/>
+            <img class="happy" fluid alt="Responsive image" src="../assets/images/Auburn.jpg"/> -->
+
       <h2>
         Natural looking dense hair in just <b>30 seconds.</b>
       </h2>

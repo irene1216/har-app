@@ -1,8 +1,9 @@
 <template>
   <div class="product-display">
     <div class="products">
-        <div v-for="product in products" @click="$emit('show:product', product.id)" v-bind:class="[activeId === product.id ? 'tab-active' : 'tab']">
-          <h2>{{product.name}}</h2>
+        <div v-for="product in products" @click="$emit('show:product', product.id)" >
+          <div class="tab-space"></div>
+          <h2 v-bind:class="[activeId === product.id ? 'tab-active' : 'tab']">{{product.name}}</h2>
         </div>
     </div>
     <div class="display-white">
@@ -162,6 +163,9 @@ export default {
   margin-right: 8px;
 }
 
+.tab-space {
+  height: 10px;
+}
 
 .products {
   border-radius: 6px;
@@ -171,8 +175,9 @@ export default {
   z-index: 1;
   position: relative;
   left: 22px;
-  top: 230px;
+  top: 225px;
 }
+
 
 .tab {
   color: grey;
