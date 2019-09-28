@@ -27,10 +27,10 @@
           </li>
         </div>
       </div>
-        <h2>Ingredients:</h2>
+<!--         <h2>Ingredients:</h2>
         <div v-for="ingredient in display.ingredients">
           <p class="m-0">{{ingredient}}</p>
-        </div>
+        </div> -->
         <div v-if="display.colors != null" class="my-3">
             <h2>Colors:</h2>
             <div class="d-flex">
@@ -120,8 +120,8 @@ export default {
 
 .product-display-text p {
   font-size: 13px;
-  margin-bottom: 4px;
-  margin-top: 6px;
+  margin-bottom: 6px;
+  margin-top: 12px;
 }
 
 .yellow-bg {

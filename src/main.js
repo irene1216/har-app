@@ -1,6 +1,6 @@
 import 'mutationobserver-shim'
 import '@babel/polyfill'
-import Vue from 'vue'
+import Vue from 'Vue'
 import './plugins/bootstrap-vue'
 import App from './App.vue'
 import router from './router'
