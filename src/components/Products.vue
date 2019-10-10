@@ -1,67 +1,86 @@
 <template>
   <div class="product-display">
-    <div class="products">
-        <div v-for="product in products" @click="$emit('show:product', product.id)" >
-          <div class="tab-space"></div>
-          <h2 v-bind:class="[activeId === product.id ? 'tab-active' : 'tab']">{{product.name}}</h2>
-        </div>
-    </div>
-    <div class="display-white">
-       <img :src="display.img" alt="" class="">
-    </div>
-    <div class="product-display-text">
-    <div class="without-button">
-      <div class="text-top">
-        <h1 style="text-transform: uppercase;">{{display.name}}</h1>
-        <div class="product-size">
-          <p>{{display.size}}</p>
-        </div>
-        <p>{{display.description}}</p>
+    <div v-scroll="handleProductImg" class="products">
+      <div
+        v-for="product in products"
+        @click="$emit('show:product', product.id)"
+      >
+        <div class="tab-space"></div>
+        <h2 v-bind:class="[activeId === product.id ? 'tab-active' : 'tab']">
+          {{ product.name }}
+        </h2>
       </div>
-      <div v-if="display.instructions != null " class="instructions yellow-bg">
-        <h2>Instructions:</h2>
-        <div v-for="(instruction, index) in display.instructions">
-          <li class="instruction-list">
-            <div class="index">{{index+1}}</div>
-            <p>{{instruction}}</p>
-          </li>
+    </div>
+    <div v-scroll="handleProductImg" class="display-white">
+      <img :src="display.img" />
+    </div>
+    <div v-scroll="handleProductImg" class="product-display-text">
+        <div class="text-top">
+          <h1 style="text-transform: uppercase;">{{ display.name }}</h1>
+          <div class="product-size">
+            <p>{{ display.size }}</p>
+          </div>
+          <p>{{ display.description }}</p>
         </div>
-      </div>
-<!--         <h2>Ingredients:</h2>
-        <div v-for="ingredient in display.ingredients">
-          <p class="m-0">{{ingredient}}</p>
-        </div> -->
+        <div v-if="display.instructions != null" v-scroll="handleProductYellow" class="slogen-content"">
+          <h2>Instructions:</h2>
+          <div class="instructions-block" v-for="(instruction, index) in display.instructions">
+            <li class="instruction-list">
+              <div class="index">{{ index + 1 }}</div>
+              <p>{{ instruction }}</p>
+            </li>
+          </div>
+        </div>
         <div v-if="display.colors != null" class="my-3">
-            <h2>Colors:</h2>
-            <div class="d-flex">
-              <div v-for="color in display.colors" :key="color.cId" class="color-box" :style="{ backgroundColor: color.cColor}" @mouseover="$emit('productUpdate', color.cImg)">
-              </div>
-            </div>
+          <h2>Colors:</h2>
+          <div class="d-flex">
+            <div
+              v-for="color in display.colors"
+              :key="color.cId"
+              class="color-box"
+              :style="{ backgroundColor: color.cColor }"
+              @mouseover="$emit('productUpdate', color.cImg)"
+            ></div>
+          </div>
         </div>
-      </div>
-            <Button  :buttonWidth=400 :buttonText="buttonText"  />
+      <Button :buttonWidth="400" :buttonText="buttonText" />
     </div>
   </div>
 </template>
 <script scoped>
-import Button from '@/components/Button.vue';
+import Button from "@/components/Button.vue";
 
 export default {
   name: "Products",
   data() {
     return {
-      buttonText: "Shop Har",
-    }
+      buttonText: "Shop Har"
+    };
   },
   props: {
     products: Array,
     activeId: Number,
     display: Object,
+    handleProductImg: Function,
+    handleProductYellow: Function
   },
   components: {
     Button
   },
-  methods: {
+  methods: {},
+  directives: {
+    // directive 1
+    scroll: {
+      // directive definition
+      inserted: function(el, binding) {
+        const f = function(evt) {
+          if (binding.value(evt, el)) {
+            window.removeEventListener("scroll", f);
+          }
+        };
+        window.addEventListener("scroll", f);
+      }
+    }
   }
 };
 </script>
@@ -79,6 +98,7 @@ export default {
   height: 520px;
   width: 520px;
   background: white;
+  opacity: 0;
   margin-left: 20px;
   margin-top: 30px;
 }
@@ -91,7 +111,6 @@ export default {
   text-align: left;
   display: flex;
   justify-content: space-between;
-
 }
 
 .display-white img {
@@ -101,6 +120,7 @@ export default {
 }
 
 .product-display-text {
+  opacity: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -124,25 +144,33 @@ export default {
   margin-top: 12px;
 }
 
-.yellow-bg {
-  background: #F2F04F;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-left: -50px;
-  padding-left: 50px;
-  width: 640px;
+.slogen-content * {
+  transition: 3s all cubic-bezier(0.39, 0.575, 0.565, 1);
+  margin-left: 10px;;
 }
 
-.instructions {
-  z-index: 1;
-  margin-bottom: 3vh;
+.slogen-content > h2 {
+  margin-top: 22px;;
+  margin-left: 50px;;
+}
+
+.slogen-content {
+  text-align: left;
+  height: 26vh;
+  margin-bottom: 5vh;
+  transition: width 2s;
+  background: #F2F04F;
+  width: 0vw;
+  margin-left: -50px;
+  padding-left: -50px;
 }
 
 .instruction-list {
   display: flex;
   align-items: center;
+  width: 640px;
+  padding-left: 15px;
 }
-
 .index {
   background-color: transparent;
   color: black;
@@ -168,6 +196,7 @@ export default {
 }
 
 .products {
+  opacity: 0;
   border-radius: 6px;
   height: 100%;
   flex-direction: column;
@@ -177,7 +206,6 @@ export default {
   left: 22px;
   top: 225px;
 }
-
 
 .tab {
   color: grey;
@@ -189,5 +217,4 @@ export default {
   border-left: 3px solid black;
   padding-left: 7px;
 }
-
 </style>

@@ -83,7 +83,7 @@ export default {
           'opacity: 1; transform: translate3d(0, 0px, 0)'
         )
       }
-      // return window.scrollY > 100
+      return window.scrollY > 100
     },
     fetchData() {
       axios.get(this.baseUrl + 'data.json').then(response => {

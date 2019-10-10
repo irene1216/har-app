@@ -1,18 +1,24 @@
 <template>
   <div class="home">
     <transition appear appear-active-class="first-enter-active">
-      <side-bar :handleSocial="handleSocial"
-                :handleLogo="handleLogo"
+      <side-bar
+
                 :brand="sideLogo"
+                :handleLogo="handleLogo"
+                :handleSocial="handleSocial"
       />
     </transition>
     <transition appear appear-active-class="first-enter-active">
       <HelloWorld msg="Har Studio." />
     </transition>
     <!-- banner -->
+
     <div class="section banner">
       <div class="container">
+            <transition appear appear-active-class="first-enter-active">
+
         <banner />
+        </transition>
       </div>
     </div>
     <!-- Products -->
@@ -22,6 +28,8 @@
               <products :products="products"
                         :activeId="activeId"
                         :display="display"
+                        :handleProductImg="handleProductImg"
+                        :handleProductYellow="handleProductYellow"
                         @show:product="showProduct"
                         @productUpdate="productUpdate"
                         class="product-tabs"
@@ -32,11 +40,11 @@
     </div>
     <!-- Contact -->
     <div class="section">
-      <ContactUs />
+      <ContactUs :handleContact="handleContact" />
     </div>
     <!-- footer -->
     <div>
-      <bottom-footer v-scroll="handleFooter" brand="Har Studio." />
+      <bottom-footer v-scroll="handleFooter" class="effect-box" brand="Har Studio." />
     </div>
   </div>
 
@@ -51,6 +59,7 @@ import axios from 'axios'
 import ContactUs from "@/components/ContactUs.vue";
 import BottomFooter from '@/components/BottomFooter.vue';
 import Button from '@/components/Button.vue';
+import { TweenMax } from 'gsap';
 
 
 export default {
@@ -64,23 +73,47 @@ export default {
     BottomFooter,
     Button,
   },
+  directives: {
+    scroll: {
+      inserted: function (el, binding) {
+        const f = function (evt) {
+          if (binding.value(evt, el)) {
+            window.removeEventListener('scroll', f)
+          }
+        }
+        window.addEventListener('scroll', f)
+      }
+    }
+  },
   data() {
     return {
       products: [],
-      display: {},
       activeId: null,
       sideLogo: "Har Studio.",
       buttonText: "Shop Har",
+      hovered: false,
+      colorsAry: [],
+      display: {}
     };
   },
   mounted() {
-    console.log("hai hai")
     this.fetchData()
+    let page = this
+    console.log("omggggggggg")
+    console.log(page.display)
+      // if (this.hovered === false) {
+      //   this.colorsAry.forEach((color)=>{
+      //     console.log(color.cImg)
+      //     setTimeout(()=>{page.productUpdate(cImg)}, 1000)
+
+      //   })
+      // }
   },
   methods: {
     fetchData() {
       axios.get('products.json').then(response => {
         this.products = response.data;
+        this.colorsAry = response.data[0].colors
         this.showProduct(this.products[0].id)
       })
     },
@@ -101,13 +134,13 @@ export default {
       this.display.img = cImg
     },
     handleSocial: function(evt, el) {
-      if (window.scrollY > 1600) {
+      if (window.scrollY > 1700) {
         el.setAttribute(
           'style',
-          'opacity: 1; transform: translate3d(0, -10vh, 0);'
+          'opacity: 1; transform: translate3d(0, -14vh, 0);'
           )
       }
-      else if (window.scrollY < 1600) {
+      else if (window.scrollY < 1700) {
         el.setAttribute(
           'style',
           'opacity: 1; transform: translate3d(0, 0, 0); transition: 1s all cubic-bezier(0.39, 0.575, 0.565, 1)'
@@ -115,7 +148,6 @@ export default {
       }
     },
     handleLogo: function(evt, el) {
-      console.log(window.scrollY)
       if (window.scrollY > 100) {
         el.setAttribute(
           'style',
@@ -130,19 +162,45 @@ export default {
       }
     },
     handleFooter: function(evt, el) {
-      if (window.scrollY > 1500) {
-        el.setAttribute(
-          'style',
-          'opacity: 1; transform: translate3d(0, 0px, 0)'
+      if (window.scrollY > 1600) {
+          el.setAttribute(
+            'style',
+            'opacity: 1; transform: translate3d(0, 0px, 0)'
           )
       }
-      return window.scrollY > 100
     },
+    handleProductImg: function(evt, el) {
+      if (window.scrollY > 350) {
+        TweenMax.to(el, 0.6, {
+          opacity: 1,
+          y: -5,
+          ease: Sine.easeIn,
+        })
+      }
+    },
+    handleProductYellow: function(evt, el) {
+      if (window.scrollY > 750) {
+        el.setAttribute(
+          'style',
+          'width: 640px;',
+          'opacity: 1;',
+          // 'animation: go 2s;'
+        )
+      }
+    },
+    handleContact: function(evt, el) {
+      if (window.scrollY > 1250) {
+        TweenMax.to(el, 0.6, {
+          opacity: 1,
+          y: -5,
+          ease: Sine.easeIn,
+        })
+      }
+    }
   }
 }
 </script>
 <style>
-
 
 
 .first-enter-active {
@@ -157,11 +215,6 @@ export default {
   0% {
     opacity: 0;
   }
-
-  37% {
-    opacity: 0;
-  }
-
   100% {
     opacity: 1;
   }
@@ -176,6 +229,11 @@ export default {
   height: 100vh;
 }
 
+.effect-box {
+  opacity: 0;
+  transition: 3s all cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
 .section {
   padding-top: 5%;
   padding-bottom: 5%;
@@ -186,20 +244,14 @@ export default {
   height: 100vh;
 }
 
-
-
-/*product section*/
-
-
-/*animations*/
-
-@keyframes jump {
-  0% {
-    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+@keyframes go {
+  from {
+    width: 0vw;
+    opacity: 0;
   }
-
-  100% {
-    transform: translate3d(0, 100%, 0) scale3d(1, 1, 1);
+  to {
+    width: 50vw;
+    opacity: 1;
   }
 }
 </style>

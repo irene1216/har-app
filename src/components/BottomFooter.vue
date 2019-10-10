@@ -1,6 +1,7 @@
 <template>
   <div class="footer">
-      <p>{{ brand }}</p>
+    <router-link to="/"><p>{{ brand }}</p></router-link>
+
     <div class="social-media">
       <router-link to="/about">About Us</router-link>
       <router-link to="/faq">FAQ</router-link>
@@ -27,6 +28,10 @@ export default {
   width: 100vw;
   padding: 1.3rem;
   padding-left: 50px
+}
+
+:hover {
+  text-decoration: none;
 }
 
 p {

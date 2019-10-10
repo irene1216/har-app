@@ -32,3 +32,11 @@ export default new Router({
     },
   ]
 });
+
+// router.afterEach((to, from, next) => {
+//   window.scrollTo(0,0);
+//   Promise.resolve()
+//     .then(()=> {
+//       url: global.location.href
+//     })
+// })

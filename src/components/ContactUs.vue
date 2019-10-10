@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div v-scroll="handleContact" class="page">
   <div class="contact-us">
     <div class="mail-box">
       <h2>Contact Us</h2>
@@ -9,7 +9,7 @@
       <div class="map">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1110.9221949626235!2d10.211799447951439!3d56.15979506671462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464c3f97a8a42bc1%3A0x7079757e6a27b86a!2sMejlgade%2048C%2C%201%20TH%2C%208000%20Aarhus%2C%20Denmark!5e0!3m2!1sen!2s!4v1568886487577!5m2!1sen!2s" width="402" height="200" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
       </div>
-      <form class="mailing-form">
+      <form @submit.prevent="sendMail" id="myform" method="post" class="mailing-form">
         <div class="group">
           <input type="text"
                   placeholder="Name"
@@ -37,25 +37,51 @@
                     :maxlength="maxlength"
                     placeholder="Message">
           </textarea>
-       <Button type="submit"
+       <Button
+               @click="sendMail"
                :buttonWidth=404
                :buttonText="buttonText" />
       </form>
     </div>
     <div class="side-box">
-
+        <img class="contact-img" src="../assets/contactPic.jpg"/>
     </div>
   </div>
-<!--     <bottom-footer v-scroll="handleScroll" class="effect-box" brand="Har Studio." />
- -->  </div>
+ </div>
 </template>
 <script>
 import Button from '@/components/Button.vue';
+import axios from 'axios';
+
 // import BottomFooter from '@/components/BottomFooter.vue'
 export default {
   name: "ContactUs",
+  data () {
+    return {
+      service_id: 'default_service',
+      template_id: 'template_IeZxpaWU',
+      user_id: 'user_sxsh0gguOOisBgmy7TAfn',
+    }
+  },
+   directives: {
+  // directive 1
+    scroll: {
+     // directive definition
+      inserted: function (el, binding) {
+        const f = function (evt) {
+          if (binding.value(evt, el)) {
+            window.removeEventListener('scroll', f)
+          }
+        }
+        window.addEventListener('scroll', f)
+      }
+    }
+  },
   components: {
     Button,
+  },
+  props: {
+    handleContact: Function
   },
   methods: {
     handleScroll: function (evt, el) {
@@ -67,8 +93,34 @@ export default {
       }
       return window.scrollY > 100
     },
-    submit: function() {
-      this.submitted = true;
+    submitEmail: function() {
+    },
+    sendMail: function() {
+      const data = {
+        service_id: 'default_service',
+        template_id: 'har',
+        user_id: 'user_sxsh0gguOOisBgmy7TAfn',
+        template_params: {
+            'name': 'this.templateParams.name',
+            'email': 'this.templateParams.email',
+            'message': 'this.templateParams.message'
+        }
+      };
+        window.emailjs.send(data.service_id, data.template_id, this.templateParams)
+        .then(function(response) {
+           console.log('SUCCESS!', response.status, response.text);
+        }, function(error) {
+           console.log('FAILED...', error);
+        });
+      // console.log(data)
+      // axios.post('https://api.emailjs.com/api/v1.0/email/send', {
+      //   data: JSON.stringify(data),
+      // }).then((response) => {
+      //   console.log(response)
+      // })
+      // .catch((e) => {
+      //   console.error(e)
+      // })
     },
     // sendMail: function('YOUR_TEMPLATE_ID', templateParams) {
     //   emailjs.send('default_service', 'template_IeZxpaWU', this.templateParams)
@@ -99,9 +151,14 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .contact-us {
   height: 100vh;
+  display: flex;
+}
+
+.page {
+  opacity: 0;
 }
 
 .mailing-form {
@@ -113,6 +170,15 @@ input {
   padding: 0px;
   margin: 4px;
   width: 14.97vw;
+}
+
+
+.contact-img {
+  width: 75vw;
+  float: right;
+  height: 100vh;
+  margin-left: 10vw;
+  transition: 3s all cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
 .info {
@@ -192,4 +258,15 @@ p {
   font-size: 14px;
 }
 
+.side-box {
+  display: flex;
+  align-items:center;
+  img{
+   height:650px;
+   width:100%;
+   object-fit:cover;
+   object-position: -150px 0;
+   overflow: hidden;
+  }
+}
 </style>

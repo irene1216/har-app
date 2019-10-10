@@ -1,8 +1,9 @@
 import 'mutationobserver-shim'
 import '@babel/polyfill'
-import Vue from 'Vue'
+import Vue from 'vue'
 import './plugins/bootstrap-vue'
 import App from './App.vue'
+import Home from './views/Home.vue'
 import router from './router'
 import store from './store'
 import '@fortawesome/fontawesome-free/css/all.css'
@@ -23,7 +24,6 @@ Vue.directive('scroll', {
         window.removeEventListener('scroll', f)
       }
     }
-    window.addEventListener('scroll', f),
-    { passive: true }
+    window.addEventListener('scroll', f)
   }
 })

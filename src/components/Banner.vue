@@ -2,37 +2,26 @@
   <div class="banner">
    <div class="row">
     <div class="col-lg-6 col-sm-12">
-      <transition
+<!--       <transition
       appear
       appear-active-class="third-enter-active"
-      >
+      > -->
       <div class="banner-image-background"></div>
-    </transition>
+<!--     </transition>
     <transition
     appear
     appear-active-class="second-enter-active"
-    >
+    > -->
     <div class="photo">
       <img class="sad" fluid alt="Responsive image" src="../assets/alex_left.png"/>
       <img class="happy" fluid alt="Responsive image" src="../assets/alex_right.png"/>
     </div>
-  </transition>
+  <!-- </transition> -->
 </div>
 <div class="col-lg-6 col-sm-12">
   <div class="banner-text">
 
     <div class="small-text">
-<!--             <img class="happy" fluid alt="Responsive image" src="../assets/images/Black.jpg"/>
-            <img class="happy" fluid alt="Responsive image" src="../assets/images/White.jpg"/>
-            <img class="happy" fluid alt="Responsive image" src="../assets/images/Grey.jpg"/>
-            <img class="happy" fluid alt="Responsive image" src="../assets/images/DBrown.jpg"/>
-            <img class="happy" fluid alt="Responsive image" src="../assets/images/MedBrown.jpg"/>
-            <img class="happy" fluid alt="Responsive image" src="../assets/images/LiBrown.jpg"/>
-            <img class="happy" fluid alt="Responsive image" src="../assets/images/Blonde.jpg"/>
-            <img class="happy" fluid alt="Responsive image" src="../assets/images/MedBlonde.jpg"/>
-            <img class="happy" fluid alt="Responsive image" src="../assets/images/LiBlonde.jpg"/>
-            <img class="happy" fluid alt="Responsive image" src="../assets/images/Auburn.jpg"/> -->
-
       <h2>
         Natural looking dense hair in just <b>30 seconds.</b>
       </h2>
@@ -58,6 +47,13 @@
         buttonText: "Shop Har"
       }
     },
+    mounted(){
+      // TweenMax.to('.banner', 5, {
+      //   opacity: 1,
+      //   y: -10,
+      //   ease: Sine.easeOut
+      // })
+    },
     components: {
       Button,
     }
@@ -66,7 +62,9 @@
 
 
 <style scoped>
+.banner {
 
+}
 .photo {
   width: 570px;
   height: 580px;
@@ -94,9 +92,10 @@
 
 .photo img.happy {
   animation-name: imgFadeInOut;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in;
   animation-iteration-count: infinite;
   animation-duration: 10s;
+  y: -10;
   animation-direction: alternate;
 }
 
@@ -166,9 +165,9 @@
   justify-content: center;
   display: flex;
   flex-direction: column;
-  animation: text-animation 2s linear forwards;
-  animation-delay: 1s;
-  opacity: 0;
+/*  animation: text-animation 2s linear forwards;
+  animation-delay: 0.5s;
+  opacity: 0;*/
 }
 
 .arrow {

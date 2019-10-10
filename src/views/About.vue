@@ -129,7 +129,6 @@ import Button from '@/components/Button.vue'
   text-align: left;
   height: 24vh;
   width: 50vw;
-  transition: width 2s;
   margin-bottom: 10vh;
   padding: 20px;
   background: #F2F04F;
@@ -199,9 +198,6 @@ import Button from '@/components/Button.vue'
 
 .effect-box {
   opacity: 0;
-  /*transform: translateZ(0);*/
-  /*backface-visibility: hidden*/;
-  /*background: rgba(255, 255, 255, 0.1);*/
   transition: 3s all cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 

@@ -9,27 +9,8 @@
   </div>
 </template>
 <script>
-  import SideBar from '@/components/SideBar.vue'
   export default {
-    name: 'app',
-    data() {
-      return {
-      }
-    },
-    components: {
-      SideBar,
-    },
-  //     mounted: function()
-  // {
-  //   // From testing, without a brief timeout, it won't work.
-  //   setTimeout(() => this.scrollFix(this.$route.hash), 1)
-  // },
-  // methods: {
-  //   scrollFix: function(hashbang)
-  //   {
-  //     location.href = hashbang;
-  //   }
-  // }
+    name: 'app'
   }
 </script>
 

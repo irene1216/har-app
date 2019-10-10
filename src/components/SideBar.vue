@@ -9,7 +9,9 @@
           <router-link v-bind:class=" { onShow3: !isHidden }" class="menu-item" to="/faq">FAQ</router-link>
         </div>
       </div>
-        <div v-scroll="handleLogo" class="nav-logo">{{ brand }}</div>
+        <div v-scroll="handleLogo" class="nav-logo">
+<router-link to="/">{{ brand }}</router-link>
+        </div>
       <div class="nav-menu" v-scroll="handleSocial"  >
         <a href="https://www.youtube.com/channel/UC0JQ6FRCunSej59MF1S3wgQ" target="_blank"><i class="fab fa-youtube"></i></a>
         <a href="http://instagram.com/harstudio.dk" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -22,6 +24,20 @@
 export default {
   beforeUpdate() {
     console.log("Updating :D")
+  },
+ directives: {
+  // directive 1
+    scroll: {
+     // directive definition
+      inserted: function (el, binding) {
+        const f = function (evt) {
+          if (binding.value(evt, el)) {
+            window.removeEventListener('scroll', f)
+          }
+        }
+        window.addEventListener('scroll', f)
+      }
+    }
   },
   name: "SideBar",
     methods: {
@@ -94,7 +110,6 @@ export default {
   font-size: 15px;
   white-space: nowrap;
   position: absolute;
-  /*padding-bottom: 10px;*/
   top: 80px;
   left: 30px;
 }
@@ -173,5 +188,10 @@ export default {
   100% {
     opacity: 1;
   }
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
 </style>

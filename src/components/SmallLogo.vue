@@ -1,7 +1,6 @@
 <template>
   <div class="hello">
-      <h1>{{ msg }}</h1>
-
+      <router-link to="/"><h1>{{ msg }}</h1></router-link>
 </div>
 </template>
 
@@ -20,6 +19,11 @@ h1{
   font-size: 2em;
   text-align: center;
   padding-top: 30px;
+    color: black;
+}
+
+:hover{
+  text-decoration: none;
 }
 
 .hello {
