@@ -32,6 +32,7 @@
 h1{
   text-align: left;
   font-family: 'DM Sans', sans-serif;
+  font-size:3em;
 }
 
 h2{
@@ -72,5 +73,27 @@ ol {
     opacity: 1;
   }
 }
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+    *{
+      margin:0;
+      padding:0;
+    }
+
+
+    h1{
+      font-size:2em;
+      text-align:center;
+    }
+
+    h2{
+      font-size:1em;
+      text-align:center;
+
+
+    }
+}
+
 
 </style>

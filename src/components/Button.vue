@@ -19,6 +19,7 @@ export default {
   background: black;
   color:white;
   height:45px;
+  width:100%;
   display: flex;
   justify-content: center;
   align-items: center;
