@@ -51,7 +51,6 @@ h1 {
     }
 
     .responsive-h1{
-      position:fixed;
       z-index:2;
     }
 

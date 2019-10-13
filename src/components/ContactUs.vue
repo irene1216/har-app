@@ -127,7 +127,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
 .page {
     opacity: 0;
 }
@@ -238,12 +237,33 @@ textarea {
 }
 
 @media(min-device-width : 320px) and (max-device-width : 480px) {
-.side-box{
-  display:none;
-}
-.mail-box{
-  width:100%;
-}
-}
+    .side-box {
+        display: none;
+    }
 
+    .mail-box {
+        width: 100%;
+    }
+
+    .group {
+        flex-direction: column;
+    }
+
+    .group input,
+    textarea,
+    .mailing-form .black {
+        width: 100%;
+        margin: 2% 0%;
+    }
+
+    .mailing-form .black {
+        width: 100%;
+        margin: 5% 0%;
+    }
+
+    .mail-box h2 {
+        font-size: 2em;
+        padding-top:0;
+    }
+}
 </style>

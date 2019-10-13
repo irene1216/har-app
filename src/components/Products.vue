@@ -27,9 +27,9 @@
                 </li>
             </div>
         </div>
-        <div v-if="display.colors != null" class="my-3">
+        <div v-if="display.colors != null">
             <h2>Colors:</h2>
-            <div class="d-flex">
+            <div class="colors">
                 <div v-for="color in display.colors" :key="color.cId" class="color-box" :style="{ backgroundColor: color.cColor }" @mouseover="$emit('productUpdate', color.cImg)"></div>
             </div>
         </div>
@@ -215,6 +215,11 @@ export default {
     width: 400px;
 }
 
+.colors {
+    display: flex;
+    margin-top:
+}
+
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 
@@ -230,6 +235,7 @@ export default {
         left: 0;
         align-items: center;
         justify-content: space-around;
+        padding: 0;
     }
 
     .tab h2,
@@ -251,6 +257,7 @@ export default {
         margin: 0;
         display: block;
         position: relative;
+        margin: 10px 0px;
     }
 
     .product-display-text {
@@ -259,10 +266,16 @@ export default {
         width: auto;
         max-height: 570px;
         max-width: 410px;
+        border: none;
+        text-align: left;
     }
 
     .product-display-text p {
         word-wrap: break-word;
+    }
+
+    .product-size {
+        border: none;
     }
 
     .slogen-content,
@@ -273,8 +286,7 @@ export default {
     }
 
     .slogen-content {
-        width: auto;
-        max-width: 169%;
+        width: 100%;
     }
 
     .slogen-content h2 {
@@ -283,19 +295,31 @@ export default {
 
     .instructions-block {
         margin: 0;
+
     }
 
     .instruction-list {
         width: auto;
-        max-width: 640px;
     }
 
     .index {
         margin: 0;
+        width: 0;
+        border: none;
     }
 
     .black {
         width: 100%;
+        min-height: 45px;
+        margin-top: 5%;
+    }
+
+    .colors {
+        flex-wrap: wrap;
+    }
+
+    .color-box {
+        margin-top: 8px;
     }
 }
 </style>

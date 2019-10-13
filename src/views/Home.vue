@@ -144,12 +144,20 @@ export default {
                 )
             }
         },
-        handleFooter: function(evt, el) {
-            if (window.scrollY > 1600) {
-                el.setAttribute(
-                    'style',
-                    'opacity: 1; transform: translate3d(0, 0px, 0)'
-                )
+       handleFooter: function(evt, el) {
+            const sm = window.matcheMedia("(max-device-width : 480px)")
+            if (!sm.matches) {
+                if (window.scrollY > 50) {
+                    el.setAttribute(
+                        'style',
+                        'opacity: 1; transform: translate3d(0, 0px, 0)'
+                    )
+                } else if (window.scrollY === 0) {
+                    el.setAttribute(
+                        'style',
+                        'opacity: 0; transform: translate3d(0, 0, 0); transition: 1s all cubic-bezier(0.39, 0.575, 0.565, 1)'
+                    )
+                }
             }
         },
         handleProductImg: function(evt, el) {
@@ -162,6 +170,8 @@ export default {
             }
         },
         handleProductYellow: function(evt, el) {
+          const sm  = window.matchMedia("(max-device-width : 480px)")
+          if (!sm.matches){
             if (window.scrollY > 750) {
                 el.setAttribute(
                     'style',
@@ -170,6 +180,8 @@ export default {
                     // 'animation: go 2s;'
                 )
             }
+
+          }
         },
         handleContact: function(evt, el) {
             if (window.scrollY > 1250) {
@@ -225,8 +237,8 @@ export default {
 }
 
 .section {
-    padding-top: 7%;
-    padding-bottom: 7%;
+    padding-top: 10%;
+    padding-bottom: 10%;
 }
 
 .beige-bg {
@@ -244,4 +256,12 @@ export default {
         opacity: 1;
     }
 }
+
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  .effect-box{
+      opacity:1;
+    }
+}
+
 </style>

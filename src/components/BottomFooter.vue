@@ -51,4 +51,23 @@ p {
   text-decoration: none;
   color: white;
 }
+
+
+/*MOBILE*/
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+ .footer{
+  height: auto;
+    flex-direction: column;
+    text-align:left;
+    padding:15px;
+    position:relative;
+ }
+
+ .social-media {
+display:flex;
+flex-direction: column;
+ }
+}
+
 </style>
