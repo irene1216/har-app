@@ -1,7 +1,6 @@
 <template>
   <div class="footer">
     <router-link to="/"><p>{{ brand }}</p></router-link>
-
     <div class="social-media">
       <router-link to="/about">About Us</router-link>
       <router-link to="/faq">FAQ</router-link>
