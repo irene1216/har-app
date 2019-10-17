@@ -7,17 +7,8 @@
                 <transition appear appear-active-class="header-enter-active">
                     <h2 class="header pb-4">FAQs</h2>
                 </transition>
-                <!--                 <div class="box">
- -->
                 <faq-box :questions="questions" :activeId="activeId" @show:question="showQuestion" :showing="showing" />
-                <!--                     <transition name="slide-fade" mode="out-in">
-                        <div v-if="showing.id !=undefined" v-bind:class="[ showing.id !=undefined ? 'active-answer' : 'answer' ]" :key="showing.answer">
-                            <p>{{showing.answer}}</p>
-                        </div>
-                    </transition> -->
-                <!--                 </div>
- -->
-            </div>
+       </div>
         </div>
         <div class="bot-wrap">
             <bottom-footer v-scroll="handleScroll" brand="Har Studio." />
@@ -67,7 +58,6 @@ export default {
                     'opacity: 1; transform: translate3d(0, 0, 0); transition: 1s all cubic-bezier(0.39, 0.575, 0.565, 1)'
                 )
             }
-            // return window.scrollY > 1700
         },
         handleLogo: function(evt, el) {
             if (window.scrollY > 50) {
@@ -76,7 +66,6 @@ export default {
                     ''
                 )
             }
-            // return window.scrollY > 1700
         },
 
 
@@ -96,15 +85,6 @@ export default {
                 }
             }
         },
-        // handleScroll: function(evt, el) {
-        // if (window.scrollY > 50) {
-        // el.setAttribute(
-        // 'style',
-        // 'opacity: 1; transform: translate3d(0, 0px, 0)'
-        // )
-        // }
-        // return window.scrollY > 100
-        // },
         fetchData() {
             axios.get(this.baseUrl + 'data.json').then(response => {
                 this.questions = response.data;
@@ -152,10 +132,13 @@ export default {
 
 .faq-box {
     height: 100%;
+    width: 100%;
     padding-top: 22vh;
+    display: flex;
+    flex-direction: column;
     padding-bottom: 8vh;
-    left: 12vw;
-    right: 12vw;
+    align-items: center;
+    justify-content: center;
     position: fixed;
 }
 
@@ -177,6 +160,10 @@ export default {
     .box {
         display: flex;
         flex-direction: column;
+    }
+
+    .header{
+      width:100%;
     }
 }
 </style>
