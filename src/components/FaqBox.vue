@@ -1,22 +1,16 @@
 <template>
-    <!--     <div class="box">
- -->
-    <div class="faqbox">
-        <div class="questions">
-            <div v-for="question in questions">
-                <div v-on:click="$emit('show:question',question.id)" v-bind:class="[activeId === question.id ? 'active' : 'faq-color']">
-                    <h6>{{question.question}}</h6>
+    <div class="faqbox" :key="showing.answer">
+        <div v-for="question in questions" class="question">
+            <div class="" v-on:click="$emit('show:question',question.id)" v-bind:class="[activeId === question.id ? 'active' : 'faq-color']">
+                <h6>{{question.question}}</h6>
+            </div>
+            <transition name="slide-fade" mode="out-in">
+                <div v-if="activeId != undefined && activeId == question.id " v-bind:class="[ showing.id !=undefined ? 'active-answer' : 'answer' ]">
+                    <p>{{showing.answer}}</p>
                 </div>
-            </div>
+            </transition>
         </div>
-        <transition name="slide-fade" mode="out-in">
-            <div v-if="showing.id !=undefined" v-bind:class="[ showing.id !=undefined ? 'active-answer' : 'answer' ]" :key="showing.answer">
-                <p>{{showing.answer}}</p>
-            </div>
-        </transition>
     </div>
-    <!--     </div>
- -->
 </template>
 <script scoped>
 export default {
@@ -35,13 +29,15 @@ export default {
 <style scoped>
 .faqbox {
     display: flex;
-    flex-direction: row;
-/*    width: 100%;
-*/}
+    height: 100%;
+    width: 80vw;
+    flex-direction: column;
+}
 
-.questions {
-    height: 50px;
-    width:50%;
+.question {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
 }
 
 .qq {
@@ -49,53 +45,44 @@ export default {
 }
 
 .faq-color {
-    background: #F2F04F;
-    display: float;
-    height: 35px;
-    top: 28px;
-    right: 10px;
-    width: 0px;
+    display: flex;
     -webkit-transition: width 2s;
-    /* For Safari 3.1 to 6.0 */
     transition: width 2s;
     white-space: nowrap;
     color: grey;
-}
-
-.active {
-    background: #F2F04F;
-    display: float;
-    height: 35px;
-    top: 28px;
-    right: 10px;
-    width: 400px;
-    -webkit-transition: width 2s;
-    transition: width 2s;
-    white-space: nowrap;
-    color: black;
-    /*border-right: 3px solid black;*/
-
 }
 
 .faq-color:hover {
     width: 400px;
 }
 
+
+
+.faq-color h6 {
+    padding: 10px 7px;
+    margin: 0;
+}
+
+.active {
+    background: #F2F04F;
+    display: flex;
+    width: 400px;
+    height: 35px;
+    -webkit-transition: width 2s;
+    transition: width 2s;
+    white-space: nowrap;
+    color: black;
+    margin: 0;
+}
+
+
 .active-question {
     color: black;
 }
 
-.active>h6 {
-    padding-top: 6px;
-    padding-right: 6px;
-    text-align: right;
-}
-
-
-.faq-color>h6 {
-    padding-top: 6px;
-    padding-right: 6px;
-    text-align: right;
+.active h6 {
+    padding: 10px 7px;
+    margin: 0;
 }
 
 .slide-fade-enter-active {
@@ -107,9 +94,7 @@ export default {
 }
 
 .slide-fade-enter,
-.slide-fade-leave-to
-
-    {
+.slide-fade-leave-to {
     transform: translateX(0px);
     opacity: 0;
 }
@@ -118,48 +103,72 @@ export default {
     padding-left: 20px;
     font-size: 0.8em;
     text-align: left;
-    width: 37vw;
+    width: 40vw;
     -webkit-transition: width 2s;
-    /* For Safari 3.1 to 6.0 */
+    position: fixed;
+    right: 150px;
+    top: 275px;
 }
 
-.active-answer>p {
-    padding-left: 20px;
-    text-align: left;
-    width: 37vw;
+.active-answer p {
     -webkit-transition: width 2s;
-    /* For Safari 3.1 to 6.0 */
-}
-
-@media (min-width: 1281px) {
-
 
 }
+
+@media (min-width: 1281px) {}
 
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
- .faqbox{
-  flex-direction: column;
- }
+    .faqbox {
+        flex-direction: column;
+            width: 100%;
+    }
 
- .questions{
-  width:100%;
-  display:block;
- }
+    .question {
+        width: 100%;
+        display: block;
+        flex-direction: column;
+    }
 
- .faq-color{
-    width: 100%;
+    .faq-color {
+        width: 100%;
         white-space: normal;
-        text-align:left;
-        background:transparent;
- }
+        text-align: left;
+        background: transparent;
+    }
 
- .faq-color h6{
-  text-align: left;
- }
+    .faq-color h6 {
+        text-align: left;
+    }
 
- .active-answer{
-  width:100%;
- }
+    .active {
+      background: transparent;
+        white-space: normal;
+        width: 100%;
+        text-align: left;
+        height: auto;
+    }
+
+    .active-answer {
+        padding-left: 0;
+        width: 100%;
+        position: relative;
+        right: 0;
+        top: 0;
+/*        padding: 10px 7px;
+*/
+    }
+
+    .active-answer p {
+        display: inline-block;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+
+    .faq-color h6, .active h6 {
+      padding:10px 0px;
+    }
 }
 </style>
