@@ -7,18 +7,17 @@
                 <transition appear appear-active-class="header-enter-active">
                     <h2 class="header pb-4">FAQs</h2>
                 </transition>
-<!--                 <div class="box">
- -->                    <faq-box :questions="questions"
-                             :activeId="activeId"
-                             @show:question="showQuestion"
-                             :showing="showing" />
-<!--                     <transition name="slide-fade" mode="out-in">
+                <!--                 <div class="box">
+ -->
+                <faq-box :questions="questions" :activeId="activeId" @show:question="showQuestion" :showing="showing" />
+                <!--                     <transition name="slide-fade" mode="out-in">
                         <div v-if="showing.id !=undefined" v-bind:class="[ showing.id !=undefined ? 'active-answer' : 'answer' ]" :key="showing.answer">
                             <p>{{showing.answer}}</p>
                         </div>
                     </transition> -->
-<!--                 </div>
- -->            </div>
+                <!--                 </div>
+ -->
+            </div>
         </div>
         <div class="bot-wrap">
             <bottom-footer v-scroll="handleScroll" brand="Har Studio." />
@@ -168,12 +167,12 @@ export default {
     }
 
 
-.faq-box {
-    left: 0vw;
-    right: 0vw;
+    .faq-box {
+        left: 0vw;
+        right: 0vw;
         padding: 60px 15px 0px 15px;
-        position:relative;
-}
+        position: relative;
+    }
 
     .box {
         display: flex;
