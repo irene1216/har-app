@@ -8,7 +8,7 @@
                     <h2 class="header pb-4">FAQs</h2>
                 </transition>
                 <faq-box :questions="questions" :activeId="activeId" @show:question="showQuestion" :showing="showing" />
-       </div>
+            </div>
         </div>
         <div class="bot-wrap">
             <bottom-footer v-scroll="handleScroll" brand="Har Studio." />
@@ -108,6 +108,10 @@ export default {
 }
 </script>
 <style>
+
+.hello{
+  z-index:4;
+}
 .top-wrap {
     height: 110vh;
 }
@@ -149,7 +153,6 @@ export default {
         opacity: 1;
     }
 
-
     .faq-box {
         left: 0vw;
         right: 0vw;
@@ -162,8 +165,12 @@ export default {
         flex-direction: column;
     }
 
-    .header{
-      width:100%;
+    .header {
+        width: 100%;
+    }
+
+    .faq-box{
+      padding: 100px 15px 0px 15px;
     }
 }
 </style>

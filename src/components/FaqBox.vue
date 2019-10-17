@@ -1,7 +1,7 @@
 <template>
     <div class="faqbox" :key="showing.answer">
-        <div v-for="question in questions" class="question">
-            <div class="" v-on:click="$emit('show:question',question.id)" v-bind:class="[activeId === question.id ? 'active' : 'faq-color']">
+        <div v-for="question in questions" class="questions">
+            <div class="question" v-on:click="$emit('show:question',question.id)" v-bind:class="[activeId === question.id ? 'active' : 'faq-color']">
                 <h6>{{question.question}}</h6>
             </div>
             <transition name="slide-fade" mode="out-in">
@@ -34,7 +34,7 @@ export default {
     flex-direction: column;
 }
 
-.question {
+.questions {
     display: flex;
     justify-content: space-between;
     position: relative;
@@ -46,17 +46,22 @@ export default {
 
 .faq-color {
     display: flex;
-    -webkit-transition: width 2s;
+    width: 0px;
+    height: 35px;
+    margin: 5px 0px;
+    color: grey;
     transition: width 2s;
     white-space: nowrap;
-    color: grey;
 }
 
 .faq-color:hover {
+    background: #F2F04F;
     width: 400px;
+    -webkit-transition: width 1.5s;
+    transition: width 1.5s;
+        color: black;
+
 }
-
-
 
 .faq-color h6 {
     padding: 10px 7px;
@@ -64,17 +69,16 @@ export default {
 }
 
 .active {
-    background: #F2F04F;
     display: flex;
     width: 400px;
     height: 35px;
-    -webkit-transition: width 2s;
-    transition: width 2s;
+    background: #F2F04F;
+    -webkit-transition: width 1.5s;
+    transition: width 1.5s;
     white-space: nowrap;
     color: black;
-    margin: 0;
+    margin: 5px 0px;
 }
-
 
 .active-question {
     color: black;
@@ -83,6 +87,7 @@ export default {
 .active h6 {
     padding: 10px 7px;
     margin: 0;
+
 }
 
 .slide-fade-enter-active {
@@ -112,7 +117,6 @@ export default {
 
 .active-answer p {
     -webkit-transition: width 2s;
-
 }
 
 @media (min-width: 1281px) {}
@@ -121,10 +125,10 @@ export default {
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     .faqbox {
         flex-direction: column;
-            width: 100%;
+        width: 100%;
     }
 
-    .question {
+    .questions {
         width: 100%;
         display: block;
         flex-direction: column;
@@ -142,7 +146,7 @@ export default {
     }
 
     .active {
-      background: transparent;
+        background: transparent;
         white-space: normal;
         width: 100%;
         text-align: left;
@@ -155,7 +159,7 @@ export default {
         position: relative;
         right: 0;
         top: 0;
-/*        padding: 10px 7px;
+        /*        padding: 10px 7px;
 */
     }
 
@@ -167,8 +171,9 @@ export default {
     }
 
 
-    .faq-color h6, .active h6 {
-      padding:10px 0px;
+    .faq-color h6,
+    .active h6 {
+        padding: 10px 0px;
     }
 }
 </style>
