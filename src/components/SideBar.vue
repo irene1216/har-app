@@ -194,4 +194,13 @@ a {
   text-decoration: none;
   color: black;
 }
+
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+  .nav{
+    padding: 21px 0px 0px 0px;
+    margin:0;
+  }
+}
 </style>
