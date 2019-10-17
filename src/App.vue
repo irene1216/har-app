@@ -84,12 +84,12 @@ ol {
 
     h1{
       font-size:2em;
-      text-align:center;
+      text-align:left;
     }
 
     h2{
       font-size:1em;
-      text-align:center;
+      text-align:left;
 
 
     }
