@@ -73,4 +73,11 @@ ol {
   }
 }
 
+/*@media screen and (max-width: 600px) {
+  #app {
+    height: 10vh;
+  }
+
+}*/
+
 </style>

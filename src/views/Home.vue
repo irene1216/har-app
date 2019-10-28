@@ -9,11 +9,12 @@
       />
     </transition>
     <transition appear appear-active-class="first-enter-active">
-      <HelloWorld msg="Har Studio." />
+      <HelloWorld
+        msg="Har Studio."
+        :handleHeader="handleHeader"
+      />
     </transition>
-    <!-- banner -->
-
-    <div class="section banner">
+    <div class="banner">
       <div class="container">
             <transition appear appear-active-class="first-enter-active">
 
@@ -22,7 +23,7 @@
       </div>
     </div>
     <!-- Products -->
-    <div class="section beige-bg">
+    <div class="beige-bg">
       <div class="container">
             <div class="tabs">
               <products :products="products"
@@ -39,7 +40,7 @@
       </div>
     </div>
     <!-- Contact -->
-    <div class="section">
+    <div class="contact">
       <ContactUs :handleContact="handleContact" />
     </div>
     <!-- footer -->
@@ -99,15 +100,6 @@ export default {
   mounted() {
     this.fetchData()
     let page = this
-    console.log("omggggggggg")
-    console.log(page.display)
-      // if (this.hovered === false) {
-      //   this.colorsAry.forEach((color)=>{
-      //     console.log(color.cImg)
-      //     setTimeout(()=>{page.productUpdate(cImg)}, 1000)
-
-      //   })
-      // }
   },
   methods: {
     fetchData() {
@@ -148,21 +140,38 @@ export default {
       }
     },
     handleLogo: function(evt, el) {
-      if (window.scrollY > 100) {
-        el.setAttribute(
-          'style',
-          'opacity: 1; transform: translate3d(0, 0px, 0); transform: rotate(-90deg); transition: 2s all cubic-bezier(0.39, 0.575, 0.565, 1)'
-          )
+      if (window.innerWidth > 790) {
+        if (window.scrollY > 100) {
+          el.setAttribute(
+            'style',
+            'opacity: 1; transform: translate3d(0, 0px, 0); transform: rotate(-90deg); transition: 2s all cubic-bezier(0.39, 0.575, 0.565, 1)'
+            )
+        }
+        else if (window.scrollY < 1350) {
+          el.setAttribute(
+            'style',
+            'opacity: 0; transform: translate3d(0, 0px, 0); transform: rotate(-90deg); transition: 2s all cubic-bezier(0.39, 0.575, 0.565, 1)'
+            )
+        }
       }
-      else if (window.scrollY < 1350) {
+      else {
         el.setAttribute(
           'style',
-          'opacity: 0; transform: translate3d(0, 0px, 0); transform: rotate(-90deg); transition: 2s all cubic-bezier(0.39, 0.575, 0.565, 1)'
+          'opacity: 0'
           )
       }
     },
+    handleHeader: function(evt, el){
+      console.log(window.innerWidth)
+      // if(window.innerWidth < 800 && window.scrollY > 1) {
+      //   el.setAttribute(
+      //     'style',
+      //     'position: fixed; opacity: 0;'
+      //   )
+      // }
+    },
     handleFooter: function(evt, el) {
-      if (window.scrollY > 1600) {
+      if (window.scrollY > 1500) {
           el.setAttribute(
             'style',
             'opacity: 1; transform: translate3d(0, 0px, 0)'
@@ -234,10 +243,10 @@ export default {
   transition: 3s all cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
-.section {
+/*.section {
   padding-top: 5%;
   padding-bottom: 5%;
-}
+}*/
 
 .beige-bg {
   background: #EDEAE5;
@@ -252,6 +261,36 @@ export default {
   to {
     width: 50vw;
     opacity: 1;
+  }
+}
+
+.banner {
+  height: 100vh;
+}
+
+@media screen and (max-width: 600px) {
+  .home {
+    width: 100vw;
+    /*height: 100vh;*/
+  }
+  .banner {
+    height: 90vh;
+  }
+  .sidebar {
+    position: fixed;
+    top: 0px;
+  }
+  .hello {
+    position: fixed;
+    top: 0px;
+    height: 20vh;
+    z-index: 200;
+  }
+  .hello *{
+    position: fixed;
+    top: 0px;
+    height: 20vh;
+    z-index: 200;
   }
 }
 </style>

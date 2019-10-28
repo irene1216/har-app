@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <div class="responsive-h1">
+    <div v-scroll="handleHeader" class="responsive-h1">
       <router-link to="/"><h1>{{ msg }}</h1></router-link>
     </div>
 </div>
@@ -9,8 +9,21 @@
 <script>
 export default {
   name: "HelloWorld",
+  directives: {
+  scroll: {
+    inserted: function (el, binding) {
+      const f = function (evt) {
+        if (binding.value(evt, el)) {
+          window.removeEventListener('scroll', f)
+          }
+        }
+        window.addEventListener('scroll', f)
+      }
+    }
+  },
   props: {
-    msg: String
+    msg: String,
+    handleHeader: Function
   }
 };
 </script>
@@ -36,5 +49,21 @@ h1 {
 
 .hello {
   padding-left: 10vh;
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 2.6em;
+    text-align: right;
+    padding-right: 100px;
+  }
+
+  .hello {
+    position: fixed;
+    /*height: 1000px;*/
+    top: 0;
+    z-index: 10;
+  }
+
 }
 </style>

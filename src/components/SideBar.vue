@@ -194,4 +194,19 @@ a {
   text-decoration: none;
   color: black;
 }
+
+@media screen and (max-width: 600px) {
+  .sidebar{
+    position: sticky;
+    top: 0px;
+  }
+  .nav {
+    padding-top: 22px;
+    /*float: top;*/
+  }
+
+  .nav-menu {
+    padding-bottom: 40px;
+  }
+}
 </style>
