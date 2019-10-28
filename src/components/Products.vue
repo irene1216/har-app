@@ -95,12 +95,12 @@ export default {
 
 .display-white {
   position: absolute;
-  height: 520px;
-  width: 520px;
+  height: 480px;
+  width: 480px;
   background: white;
   opacity: 0;
   margin-left: 20px;
-  margin-top: 30px;
+  margin-top: 55px;
 }
 
 .product-size {
@@ -123,14 +123,15 @@ export default {
   opacity: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /*justify-content: space-between;*/
   position: relative;
   margin-left: 7em;
-  height: 570px;
+  height: 486px;
   border-top: 3px solid black;
   width: 410px;
   margin-right: 80px;
   border-bottom: 3px solid black;
+  top: 53px;
 }
 
 .product-display-text h1 {
@@ -140,7 +141,7 @@ export default {
 
 .product-display-text p {
   font-size: 13px;
-  margin-bottom: 6px;
+  margin-bottom: 3px;
   margin-top: 12px;
 }
 
@@ -150,14 +151,15 @@ export default {
 }
 
 .slogen-content > h2 {
-  margin-top: 22px;;
+  /*margin-top: 8px;;*/
   margin-left: 50px;;
+  padding-top: 15px;
 }
 
 .slogen-content {
   text-align: left;
-  height: 26vh;
-  margin-bottom: 5vh;
+  height: 20vh;
+  margin-bottom: 0vh;
   transition: width 2s;
   background: #F2F04F;
   width: 0vw;
@@ -170,18 +172,27 @@ export default {
   align-items: center;
   width: 640px;
   padding-left: 15px;
+  margin-top: 0px;
 }
+
+.instruction-list > p{
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
 .index {
+  left: 10px;
   background-color: transparent;
   color: black;
   font-weight: normal;
-  height: 26px;
-  width: 26px;
+  height: 18px;
+  width: 18px;
   text-align: center;
-  border: 1.6px solid black;
+  border: 0.7px solid black;
   border-radius: 50%;
-  margin-right: 2%;
-  margin-bottom: 0px;
+  margin-right: 1%;
+  margin-bottom: 10px;
+  font-size: 12px;
 }
 
 .color-box {

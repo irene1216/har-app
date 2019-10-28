@@ -39,7 +39,7 @@
           </textarea>
        <Button
                @click="sendMail"
-               :buttonWidth=404
+               :buttonWidth=402
                :buttonText="buttonText" />
       </form>
     </div>
@@ -112,25 +112,7 @@ export default {
         }, function(error) {
            console.log('FAILED...', error);
         });
-      // console.log(data)
-      // axios.post('https://api.emailjs.com/api/v1.0/email/send', {
-      //   data: JSON.stringify(data),
-      // }).then((response) => {
-      //   console.log(response)
-      // })
-      // .catch((e) => {
-      //   console.error(e)
-      // })
     },
-    // sendMail: function('YOUR_TEMPLATE_ID', templateParams) {
-    //   emailjs.send('default_service', 'template_IeZxpaWU', this.templateParams)
-    //     .then(function(response) {
-    //        console.log('SUCCESS!', response.status, response.text);
-    //     }, function(error) {
-    //        console.log('FAILED...', error);
-    //     })
-    //   }
-    // },
   },
   data() {
     return {
@@ -195,7 +177,7 @@ input {
 #textarea {
   margin-top: 8px;
   margin-bottom: 8px;
-  margin-left: 13px;
+  margin-left: 6px;
 
 }
 
@@ -204,8 +186,8 @@ textarea {
 }
 
 #name {
-  margin-left: 0px;
-  /*margin-right: 3px;*/
+  margin-left: 6px;
+  margin-right: 3.3px;
 }
 
 .group {
@@ -235,7 +217,7 @@ h2 {
 }
 
 .black {
-  margin-left: 13px;
+  margin-left: 6px;
 }
 
 .page {
